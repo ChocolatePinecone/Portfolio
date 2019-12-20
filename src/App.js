@@ -6,7 +6,7 @@ import PageNavigation from './components/PageNavigation';
 const App = () => (
     <div className='App'>
         <header className='App-header'>
-            <div className='logo'>
+            <div className='content'>
                 <img src={logo} alt='logo' />
                 <PageNavigation className='nav' />
             </div>
