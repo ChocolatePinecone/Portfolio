@@ -7,13 +7,11 @@ import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import './PageNavigation.css';
 
 const PageNavigation = () => {
-    const [value, setValue] = React.useState(0);
 
     return (
         <BottomNavigation
-            value={value}
             onChange={(event, newValue) => {
-                setValue(newValue);
+                navigate(newValue);
             }}
             showLabels
             className='nav'
@@ -23,6 +21,40 @@ const PageNavigation = () => {
             <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} label='Experience' icon={<PeopleAltOutlinedIcon fontSize='large' />} />
         </BottomNavigation>
     );
+};
+
+const navigate = (value) => {
+    let path = '/';
+
+    switch (value) {
+    case 0: // About
+        path = '/about';
+        break;
+    case 1: // Skills
+        path = '/skills';
+        break;
+    case 2: // Experience
+        path = '/experience';
+        break;
+    default:
+        break;
+    }
+
+    redirectToPath(path);
+};
+
+const redirectToPath = (path) => {
+    // Fade out current page
+    document.querySelector('.content').classList.add('fade-out');
+
+    // Negate timeout when animation will not be perfomed
+    const mql = window.matchMedia('prefers-reduced-motion: no-preference');
+    const timeout = (mql.matches) ? 0 : 500;
+
+    // Redirect when animation is done
+    window.setTimeout(() => {
+        window.location.pathname = path;
+    }, timeout);
 };
 
 export default PageNavigation;
