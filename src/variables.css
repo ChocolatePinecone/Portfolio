@@ -2,4 +2,7 @@
     /* Colors */
     --main-bg-color: #282c34;
     --main-txt-color: white;
+
+    /* Times */
+    --fade-animation-time: 0.5s;
 }

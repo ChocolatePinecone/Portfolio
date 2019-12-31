@@ -2,10 +2,12 @@
 
 .App {
     text-align: center;
+    font-family: 'VT323', monospace;
 }
 
 .content {
     width: 60vw;
+    animation: fade-in-animation 1 var(--fade-animation-time) linear;
 }
 
 @media (max-width: 500px) {
@@ -23,6 +25,10 @@
 @media (prefers-reduced-motion: no-preference) {
     .content img {
         animation: App-logo-float infinite 5s linear;
+    }
+
+    .fade-out {
+        animation: fade-out-animation 1 var(--fade-animation-time) linear;
     }
 }
 
@@ -53,5 +59,23 @@
     100% {
         box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 1.0);
         transform: translatey(0px);
+    }
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fade-out-animation {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0;
     }
 }

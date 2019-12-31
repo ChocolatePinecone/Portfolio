@@ -1,14 +1,12 @@
 import React from 'react';
-import logo from './assets/images/logo.png';
 import './App.css';
-import PageNavigation from './components/PageNavigation';
+import Home from './pages/Home'
 
 const App = () => (
     <div className='App'>
         <header className='App-header'>
             <div className='content'>
-                <img src={logo} alt='logo' />
-                <PageNavigation className='nav' />
+                <Home/>
             </div>
         </header>
 
