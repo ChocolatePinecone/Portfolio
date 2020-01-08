@@ -59,7 +59,7 @@ const RouteListItem = (props) => {
 };
 
 const CollapsibleListItem = (props) => {
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const toggleOpen = () => { setOpen(!open); };
 
     return (

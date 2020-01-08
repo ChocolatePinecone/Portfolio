@@ -4,24 +4,67 @@ import ContentNavigation from '../components/ContentNavigation';
 const temp = [
     {
         label: 'Skills',
-        subroutes: [
+        subRoutes: [
             {
                 label: 'Hard skills',
                 subRoutes: [
                     {
                         label: 'Languages',
+                        subRoutes: [
+                            {
+                                label: 'Javascript',
+                            },
+                            {
+                                label: 'Java',
+                            },
+                            {
+                                label: 'C++',
+                            },
+                        ],
                     },
                     {
                         label: 'Frameworks',
+                        subRoutes: [
+                            {
+                                label: 'Polymer',
+                            },
+                            {
+                                label: 'React',
+                            },
+                            {
+                                label: 'Spring',
+                            },
+                        ],
                     },
                     {
                         label: 'Tools',
+                        subRoutes: [
+                            {
+                                label: 'ESLint',
+                            },
+                        ],
                     },
                 ],
             },
             {
                 label: 'Soft skills',
-                su
+                subRoutes: [
+                    {
+                        label: 'Communication',
+                    },
+                    {
+                        label: 'Presenting',
+                    },
+                    {
+                        label: 'Learning',
+                    },
+                    {
+                        label: 'Flexibility',
+                    },
+                    {
+                        label: 'Creativity',
+                    },
+                ],
             },
         ],
     },
@@ -35,26 +78,3 @@ const Skills = () => (
 );
 
 export default Skills;
-
-/**
- * This skills page will have the following grouping:
- *
- *  Hard skills
- *      Languages
- *          Javascript
- *          Java
- *          C++
- *      Frameworks
- *          Polymer
- *          React
- *          Spring
- *      Tools
- *          ESLint
- *
- *  Soft skills
- *      Communication
- *      Presenting
- *      Studious
- *      Flexible
- *      Creative
- */
