@@ -70,13 +70,13 @@
         opacity: 0;
     }
     100% {
-        opacity: 100%;
+        opacity: 1;
     }
 }
 
 @keyframes fade-out-animation {
     0% {
-        opacity: 100%;
+        opacity: 1;
     }
     100% {
         opacity: 0;

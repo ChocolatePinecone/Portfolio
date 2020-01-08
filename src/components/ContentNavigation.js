@@ -43,7 +43,6 @@ const ContentNavigation = (props) => {
 const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
     route.id = route.id || '/' + route.label.toLowerCase();
     route.id = parentRouteId + route.id;
-    console.log(route.id);
     return <RouteListItem key={route.id} route={route} listDepth={listDepth} />;
 };
 
