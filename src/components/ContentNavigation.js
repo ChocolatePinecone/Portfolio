@@ -47,7 +47,7 @@ const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
 };
 
 const RouteListItem = (props) => {
-    if (props.route.subroutes === undefined) {
+    if (props.route.subRoutes === undefined) {
         return (
             <ListItem button>
                 <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
@@ -70,7 +70,7 @@ const CollapsibleListItem = (props) => {
             </ListItem>
             <Collapse in={open}>
                 <List>
-                    { props.route.subroutes.map((subroute) => createRouteListItem(subroute, props.route.id, props.listDepth + 1)) }
+                    { props.route.subRoutes.map((subRoute) => createRouteListItem(subRoute, props.route.id, props.listDepth + 1)) }
                 </List>
             </Collapse>
         </div>

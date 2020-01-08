@@ -7,7 +7,7 @@ const temp = [
         subroutes: [
             {
                 label: 'Hard skills',
-                subroutes: [
+                subRoutes: [
                     {
                         label: 'Languages',
                     },
@@ -21,6 +21,7 @@ const temp = [
             },
             {
                 label: 'Soft skills',
+                su
             },
         ],
     },
