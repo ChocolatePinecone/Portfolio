@@ -1,39 +1,37 @@
 import React from 'react';
-import ContentNavigation from '../components/ContentNavigation'
+import ContentNavigation from '../components/ContentNavigation';
 
 const temp = [
     {
-        label: "Skills",
+        label: 'Skills',
         subroutes: [
             {
-                label: "Hard skills",
+                label: 'Hard skills',
                 subroutes: [
                     {
-                        label: "Languages",
+                        label: 'Languages',
                     },
                     {
-                        label: "Frameworks",
+                        label: 'Frameworks',
                     },
                     {
-                        label: "Tools",
+                        label: 'Tools',
                     },
                 ],
             },
             {
-                label: "Soft skills",
-            }
-        ]
-    }
+                label: 'Soft skills',
+            },
+        ],
+    },
 ];
 
-const Skills = () => {
-    return (
-        <div id='skills'>
-            <h3>This is the skills page</h3>
-            <ContentNavigation routes={temp}/>
-        </div>
-    );
-};
+const Skills = () => (
+    <div id='skills'>
+        <h3>This is the skills page</h3>
+        <ContentNavigation routes={temp} />
+    </div>
+);
 
 export default Skills;
 

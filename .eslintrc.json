@@ -19,7 +19,8 @@
     "max-len": ["warn", { "code": 200 }],
     "no-use-before-define": ["off"],
     "import/no-mutable-exports": ["off"],
-    "eol-last": ["off"]
+    "eol-last": ["off"],
+    "no-param-reassign": ["off"]
   },
   "parserOptions": {
     "ecmaVersion": 6,

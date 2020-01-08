@@ -27,36 +27,35 @@ const ContentNavigation = (props) => {
 
     return (
         <List
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-            subheader={
-                <ListSubheader component="div" id="nested-list-subheader">
+            component='nav'
+            aria-labelledby='nested-list-subheader'
+            subheader={(
+                <ListSubheader component='div' id='nested-list-subheader'>
                     Nested List Items
                 </ListSubheader>
-            }
+            )}
         >
-            { props.routes.map((route) => { return createRouteListItem(route) }) }
+            { props.routes.map((route) => createRouteListItem(route)) }
         </List>
     );
 };
 
 const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
-    route.id = route.id || '/' + route.label.toLowerCase();
+    route.id = route.id || `/${route.label.toLowerCase()}`;
     route.id = parentRouteId + route.id;
     return <RouteListItem key={route.id} route={route} listDepth={listDepth} />;
 };
 
 const RouteListItem = (props) => {
-    if(props.route.subroutes === undefined) {
+    if (props.route.subroutes === undefined) {
         return (
             <ListItem button>
-                <ListItemText primary={props.route.label} style={{ paddingLeft: props.listDepth * 16 + 'px' }}/>
+                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
             </ListItem>
         );
     }
-    else {
-        return <CollapsibleListItem route={props.route} listDepth={props.listDepth} />;
-    }
+
+    return <CollapsibleListItem route={props.route} listDepth={props.listDepth} />;
 };
 
 const CollapsibleListItem = (props) => {
@@ -66,18 +65,17 @@ const CollapsibleListItem = (props) => {
     return (
         <div>
             <ListItem button onClick={toggleOpen}>
-                <ListItemText primary={ props.route.label } style={{ paddingLeft: props.listDepth * 16 + 'px' }} />
+                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open}>
-                <List >
-                    { props.route.subroutes.map((subroute) => { return createRouteListItem(subroute, props.route.id, props.listDepth + 1) }) }
+                <List>
+                    { props.route.subroutes.map((subroute) => createRouteListItem(subroute, props.route.id, props.listDepth + 1)) }
                 </List>
             </Collapse>
         </div>
     );
 };
-
 
 
 export default ContentNavigation;

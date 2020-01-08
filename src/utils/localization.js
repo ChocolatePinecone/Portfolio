@@ -9,7 +9,6 @@ const localize = (label) => {
 
     // Read json file with the current language
 
-    return "";
 };
 
 export default { setLanguage, localize };
