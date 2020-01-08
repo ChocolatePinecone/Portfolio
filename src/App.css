@@ -7,7 +7,6 @@
 
 .content {
     width: 60vw;
-    animation: fade-in-animation 1 var(--fade-animation-time) linear;
 }
 
 @media (max-width: 500px) {
@@ -23,6 +22,10 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+    .content {
+        animation: fade-in-animation 1 var(--fade-animation-time) linear;
+    }
+
     .content img {
         animation: App-logo-float infinite 5s linear;
     }
