@@ -1,33 +1,24 @@
 @import "variables.css";
 
+html {
+    background-color: var(--main-bg-color);
+}
+
+body {
+    font-family: var(--main-font);
+}
+
 .App {
     text-align: center;
-    font-family: 'VT323', monospace;
 }
 
-.content {
-    width: 60vw;
-}
-
-@media (max-width: 500px) {
-    .content {
-        width: 80vw;
-    }
-}
-
-
-.content img {
-    width: 100%;
-    pointer-events: none;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .content {
+    .page {
         animation: fade-in-animation 1 var(--fade-animation-time) linear;
-    }
-
-    .content img {
-        animation: App-logo-float infinite 5s linear;
     }
 
     .fade-out {
@@ -36,49 +27,10 @@
 }
 
 .App-header {
-    background-color: var(--main-bg-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
 }
 
 .App-link {
     color: #61dafb;
-}
-
-@keyframes App-logo-float {
-    0% {
-        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 1.0);
-        transform: translatey(0px);
-    }
-    50% {
-        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 0.2);
-        transform: translatey(-20px);
-    }
-    100% {
-        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 1.0);
-        transform: translatey(0px);
-    }
-}
-
-@keyframes fade-in-animation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out-animation {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }

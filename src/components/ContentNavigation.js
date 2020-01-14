@@ -1,11 +1,56 @@
 import React from 'react';
+import './ContentNavigation.css';
 import { useHistory } from 'react-router-dom';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import Collapse from '@material-ui/core/Collapse';
 import { ExpandMore, ExpandLess } from '@material-ui/icons';
+
+const routes = [
+    {
+        label: 'Skills',
+        subRoutes: [
+            {
+                label: 'Hard skills',
+                subRoutes: [
+                    {
+                        label: 'Languages',
+                        subRoutes: [
+                            { label: 'Javascript' },
+                            { label: 'Java' },
+                            { label: 'C++' },
+                        ],
+                    },
+                    {
+                        label: 'Frameworks',
+                        subRoutes: [
+                            { label: 'Polymer' },
+                            { label: 'React' },
+                            { label: 'Spring' },
+                        ],
+                    },
+                    {
+                        label: 'Tools',
+                        subRoutes: [
+                            { label: 'ESLint' },
+                        ],
+                    },
+                ],
+            },
+            {
+                label: 'Soft skills',
+                subRoutes: [
+                    { label: 'Communication' },
+                    { label: 'Presenting' },
+                    { label: 'Learning' },
+                    { label: 'Flexibility' },
+                    { label: 'Creativity' },
+                ],
+            },
+        ],
+    },
+];
 
 const ContentNavigation = (props) => {
     const history = useHistory();
@@ -16,7 +61,7 @@ const ContentNavigation = (props) => {
 
         // Negate timeout when animation will not be perfomed
         const mql = window.matchMedia('prefers-reduced-motion: no-preference');
-        const timeout = (mql.matches) ? 0 : 500;
+        const timeout = (mql.matches) ? 0 : 490;
 
         // Change to new content through history so only page content will be reloaded instead of the whole page
         window.setTimeout(() => {
@@ -26,17 +71,11 @@ const ContentNavigation = (props) => {
     };
 
     return (
-        <List
-            component='nav'
-            aria-labelledby='nested-list-subheader'
-            subheader={(
-                <ListSubheader component='div' id='nested-list-subheader'>
-                    Nested List Items
-                </ListSubheader>
-            )}
-        >
-            { props.routes.map((route) => createRouteListItem(route)) }
-        </List>
+        <div className='navigation'>
+            <List component='nav'>
+                { routes.map((route) => createRouteListItem(route)) }
+            </List>
+        </div>
     );
 };
 
@@ -49,7 +88,7 @@ const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
 const RouteListItem = (props) => {
     if (props.route.subRoutes === undefined) {
         return (
-            <ListItem button>
+            <ListItem button className='list-item'>
                 <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
             </ListItem>
         );
@@ -59,12 +98,12 @@ const RouteListItem = (props) => {
 };
 
 const CollapsibleListItem = (props) => {
-    const [open, setOpen] = React.useState(false);
-    const toggleOpen = () => { setOpen(!open); };
+    const [open, setOpen] = React.useState(true);
+    const toggleOpen = () => { setOpen(!open) };
 
     return (
         <div>
-            <ListItem button onClick={toggleOpen}>
+            <ListItem button className='list-item' onClick={toggleOpen}>
                 <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>

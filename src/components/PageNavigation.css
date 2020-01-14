@@ -12,7 +12,7 @@
 
 .label {
     font-size: 1.5rem !important;
-    font-family: 'VT323', monospace !important;
+    font-family: var(--title-font) !important;
 }
 
 @media (max-width: 500px) {

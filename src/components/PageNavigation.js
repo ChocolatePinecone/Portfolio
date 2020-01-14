@@ -12,15 +12,15 @@ const PageNavigation = () => {
 
     const redirectToPath = (event, path) => {
         // Fade out current content
-        document.querySelector('.content').classList.add('fade-out');
+        document.querySelector('.page').classList.add('fade-out');
 
         // Negate timeout when animation will not be perfomed
         const mql = window.matchMedia('prefers-reduced-motion: no-preference');
-        const timeout = (mql.matches) ? 0 : 500;
+        const timeout = (mql.matches) ? 0 : 490;
 
         // Change to new content through history so only page content will be reloaded instead of the whole page
         window.setTimeout(() => {
-            document.querySelector('.content').classList.remove('fade-out');
+            document.querySelector('.page').classList.remove('fade-out');
             history.push(path);
         }, timeout);
     };

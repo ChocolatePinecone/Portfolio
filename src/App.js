@@ -7,19 +7,22 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Skills from './pages/Skills';
+import Competences from './pages/Competences';
 
 const App = () => (
     <div className='App'>
         <header className='App-header'>
-            <div className='content'>
+            <div className='page'>
                 <Router>
                     <Switch>
                         <Route path='/about'>
                             <About />
                         </Route>
                         <Route path='/skills'>
-                            <Skills />
+                            <Competences />
+                        </Route>
+                        <Route path='/experience'>
+                            <Competences />
                         </Route>
                         <Route path='/'>
                             <Home />

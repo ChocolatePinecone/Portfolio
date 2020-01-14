@@ -1,0 +1,38 @@
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+img {
+    width: 60%;
+}
+
+@media (max-width: 500px) {
+    img {
+        width: 80%;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #home img {
+        animation: Logo-float infinite 5s linear;
+    }
+}
+
+@keyframes Logo-float {
+    0% {
+        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 1.0);
+        transform: translatey(0px);
+    }
+    50% {
+        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 0.2);
+        transform: translatey(-20px);
+    }
+    100% {
+        box-shadow: 0 20px 15px -20px rgba(0, 0, 0, 1.0);
+        transform: translatey(0px);
+    }
+}
