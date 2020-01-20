@@ -1,5 +1,5 @@
 import React from 'react';
-import PageNavigation from '../components/PageNavigation';
+import { PageNavigation } from '../components/PageNavigation';
 
 const About = () => (
     <div id='about'>

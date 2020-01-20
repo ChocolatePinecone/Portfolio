@@ -6,12 +6,22 @@
     /* Colors */
     --main-bg-color: #282c34;
     --main-txt-color: white;
+    --header-bg-color: #050706;
+    --mobile-menu-bg-color: rgba(0, 0, 0, 0.85);
 
-    /* Spacing */
+    /* Sizes */
     --spacing-single: 16px;
+    --spacing-double: 32px;
+    --menu-bar-basic-height: 60px;
+    --menu-bar-total-height: 92px;
+    --navigation-max-width: 300px;
 
     /* Times */
-    --fade-animation-time: 0.5s;
+    --transition-time-short: 0.3s;
+
+    /* Animation */
+    --fade-in: fade-in-animation 1 var(--transition-time-short) linear;
+    --fade-out: fade-out-animation 1 var(--transition-time-short) linear;
 }
 
 @keyframes fade-in-animation {

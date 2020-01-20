@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Competences from './pages/Competences';
+import { Competences } from './pages/Competences';
 
 const App = () => (
     <div className='App'>

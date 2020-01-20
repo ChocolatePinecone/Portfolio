@@ -18,19 +18,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (prefers-reduced-motion: no-preference) {
     .page {
-        animation: fade-in-animation 1 var(--fade-animation-time) linear;
+        animation: var(--fade-in);
     }
 
     .fade-out {
-        animation: fade-out-animation 1 var(--fade-animation-time) linear;
+        animation: var(--fade-out) !important;
     }
 }
 
 .App-header {
     font-size: calc(10px + 2vmin);
     color: white;
-}
-
-.App-link {
-    color: #61dafb;
 }
