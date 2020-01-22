@@ -30,6 +30,7 @@ const routes = [
                             { label: 'Polymer' },
                             { label: 'React' },
                             { label: 'Spring' },
+                            { label: 'Phaser' },
                         ],
                     },
                     {
@@ -55,13 +56,29 @@ const routes = [
     {
         label: 'Experience',
         subRoutes: [
-            { label: 'Frontender at ING' },
+            {
+                label: 'Companies',
+                subRoutes: [
+                    { label: 'Frontender at ING' }
+                ]
+            },
+            {
+                label: 'Projects',
+                subRoutes: [
+                    { label: 'This website' },
+                    { label: 'Rocket-Shipment' },
+                    { label: 'My Phaser workshop' }
+                ]
+            },
         ]
     }
 ];
 
-class ContentNavigation extends React.Component {
+let rendering;
+
+export class ContentNavigation extends React.Component {
     render() {
+        rendering = true;
         return (
             <div className='navigation'>
                 <List component='nav'>
@@ -72,7 +89,12 @@ class ContentNavigation extends React.Component {
     }
 
     componentDidMount() {
+        rendering = false;
         updateNavigationSelection(window.location.pathname);
+    }
+
+    componentDidUpdate() {
+        rendering = false;
     }
 }
 
@@ -88,22 +110,9 @@ const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
 const RouteListItem = (props) => {
     const history = useHistory();
 
-    const navigateToContent = (path) => {
-        let delay = 0;
-        if(document.querySelector('.navigation').classList.contains(('menu-opened'))) {
-            toggleMobileMenu();
-            delay = 300;
-        }
-
-        window.setTimeout(() => {
-            redirectToPath(history, path, redirectionType.CONTENT);
-            updateNavigationSelection(path);
-        }, delay);
-    };
-
     if (props.route.subRoutes === undefined) {
         return (
-            <ListItem button className='list-item' path={props.route.id} onClick={ () => { navigateToContent(props.route.id) } }>
+            <ListItem button className='list-item' path={props.route.id} onClick={ () => { navigateToContent(history, props.route.id) } }>
                 <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
             </ListItem>
         );
@@ -113,7 +122,14 @@ const RouteListItem = (props) => {
 };
 
 const CollapsibleListItem = (props) => {
-    const [open, setOpen] = React.useState(window.location.pathname.includes(props.route.id));
+    const shouldExpand = window.location.pathname.includes(props.route.id);
+
+    const [open, setOpen] = React.useState(shouldExpand);
+
+    // This opens the navigational path in the menu towards the current url, only when re-rendering.
+    // User can still open/close this expanded path because component will not re-render on the 'open' state change.
+    if(rendering && open !== shouldExpand && shouldExpand === true) setOpen(shouldExpand);
+
     const toggleOpen = () => { setOpen(!open) };
 
     return (
@@ -148,4 +164,28 @@ const updateNavigationSelection = (newPath) => {
     }
 };
 
-export default ContentNavigation;
+export const navigateToContent = (history, path) => {
+    let delay = 0;
+    if(document.querySelector('.navigation').classList.contains(('menu-opened'))) {
+        toggleMobileMenu();
+        delay = 300;
+    }
+
+    window.setTimeout(() => {
+        redirectToPath(history, path, redirectionType.CONTENT);
+        updateNavigationSelection(path);
+    }, delay);
+};
+
+export const ContentLink = (props) => {
+    const history = useHistory();
+
+    const navigate = (e) => {
+        e.preventDefault(); // Prevent anchor from redirecting
+        navigateToContent(history, props.href); // Redirect in the desired way, only refreshing the content
+    };
+
+    return (
+        <a href={ props.href } onClick={ navigate }>{ props.children }</a>
+    );
+};

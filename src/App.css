@@ -8,12 +8,12 @@ body {
     font-family: var(--main-font);
 }
 
-.App {
-    text-align: center;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--title-font);
+}
+
+a {
+    color: var(--link-color);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -26,7 +26,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.App {
+    text-align: center;
+}
+
 .App-header {
-    font-size: calc(10px + 2vmin);
     color: white;
 }

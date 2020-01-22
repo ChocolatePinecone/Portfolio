@@ -25,9 +25,12 @@
 }
 .content {
     flex: 1 0 0;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.content h1 {
     text-align: center;
-    margin-left: var(--spacing-single);
-    margin-right: var(--spacing-single);
 }
 
 img.logo {

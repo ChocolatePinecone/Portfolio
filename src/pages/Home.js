@@ -5,7 +5,7 @@ import { PageNavigation } from '../components/PageNavigation';
 
 const Home = () => (
     <div id='home'>
-        <h3>This is the portfolio of:</h3>
+        <h2>This is the portfolio of:</h2>
         <br />
         <img src={logo} alt='Jelmer Pijnappel' />
         <PageNavigation className='nav' />

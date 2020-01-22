@@ -1,0 +1,15 @@
+@import "../variables.css";
+
+.quote {
+    margin-bottom: var(--spacing-double);
+}
+
+.quote-text {
+    font-weight: bold;
+    margin-bottom: var(--spacing-half);
+}
+
+.quote-author {
+    font-weight: lighter;
+    font-style: italic;
+}

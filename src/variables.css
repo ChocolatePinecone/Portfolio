@@ -8,8 +8,10 @@
     --main-txt-color: white;
     --header-bg-color: #050706;
     --mobile-menu-bg-color: rgba(0, 0, 0, 0.85);
+    --link-color: DeepSkyBlue;
 
     /* Sizes */
+    --spacing-half: 8px;
     --spacing-single: 16px;
     --spacing-double: 32px;
     --menu-bar-basic-height: 60px;

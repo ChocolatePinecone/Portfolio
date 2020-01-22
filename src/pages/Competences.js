@@ -1,6 +1,6 @@
 import React from 'react';
 import './Competences.css'
-import ContentNavigation from '../components/ContentNavigation';
+import { ContentNavigation } from '../components/ContentNavigation';
 import logo from '../assets/images/logo.png';
 import { redirectToPath} from '../components/PageNavigation';
 import {
@@ -8,6 +8,11 @@ import {
     Route,
     useHistory,
 } from 'react-router-dom';
+import Javascript from '../competences/Javascript';
+import Java from '../competences/Java';
+import Cplusplus from '../competences/C++';
+import Skills from '../competences/Skills';
+import Experience from '../competences/Experience';
 
 export const Competences = () => {
     const history = useHistory();
@@ -29,11 +34,20 @@ export const Competences = () => {
                 <ContentNavigation />
                 <div className='content'>
                     <Switch>
+                        <Route path='/skills/hard-skills/languages/javascript'>
+                            <Javascript/>
+                        </Route>
+                        <Route path='/skills/hard-skills/languages/java'>
+                            <Java/>
+                        </Route>
+                        <Route path='/skills/hard-skills/languages/c++'>
+                            <Cplusplus/>
+                        </Route>
                         <Route path='/skills'>
-                            <h3>Welcome skills</h3>
+                            <Skills/>
                         </Route>
                         <Route path='/experience'>
-                            <h3>Welcome experience</h3>
+                            <Experience />
                         </Route>
                     </Switch>
                 </div>
