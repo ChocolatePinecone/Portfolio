@@ -1,7 +1,10 @@
 @import "../variables.css";
 
 .quote {
+    padding-bottom: var(--spacing-single);
     margin-bottom: var(--spacing-double);
+    border-bottom: 1px solid var(--main-txt-color);
+    font-style: italic;
 }
 
 .quote-text {
@@ -11,5 +14,4 @@
 
 .quote-author {
     font-weight: lighter;
-    font-style: italic;
 }

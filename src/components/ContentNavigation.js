@@ -9,71 +9,6 @@ import { ExpandMore, ExpandLess } from '@material-ui/icons';
 import { redirectToPath, redirectionType } from '../components/PageNavigation';
 import { toggleMobileMenu } from '../pages/Competences';
 
-const routes = [
-    {
-        label: 'Skills',
-        subRoutes: [
-            {
-                label: 'Hard skills',
-                subRoutes: [
-                    {
-                        label: 'Languages',
-                        subRoutes: [
-                            { label: 'Javascript' },
-                            { label: 'Java' },
-                            { label: 'C++' },
-                        ],
-                    },
-                    {
-                        label: 'Frameworks',
-                        subRoutes: [
-                            { label: 'Polymer' },
-                            { label: 'React' },
-                            { label: 'Spring' },
-                            { label: 'Phaser' },
-                        ],
-                    },
-                    {
-                        label: 'Tools',
-                        subRoutes: [
-                            { label: 'ESLint' },
-                        ],
-                    },
-                ],
-            },
-            {
-                label: 'Soft skills',
-                subRoutes: [
-                    { label: 'Communication' },
-                    { label: 'Presenting' },
-                    { label: 'Learning' },
-                    { label: 'Flexibility' },
-                    { label: 'Creativity' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Experience',
-        subRoutes: [
-            {
-                label: 'Companies',
-                subRoutes: [
-                    { label: 'Frontender at ING' }
-                ]
-            },
-            {
-                label: 'Projects',
-                subRoutes: [
-                    { label: 'This website' },
-                    { label: 'Rocket-Shipment' },
-                    { label: 'My Phaser workshop' }
-                ]
-            },
-        ]
-    }
-];
-
 let rendering;
 
 export class ContentNavigation extends React.Component {
@@ -82,7 +17,7 @@ export class ContentNavigation extends React.Component {
         return (
             <div className='navigation'>
                 <List component='nav'>
-                    {routes.map((route) => createRouteListItem(route))}
+                    {this.props.routes.map((route) => createRouteListItem(route))}
                 </List>
             </div>
         );
@@ -113,7 +48,7 @@ const RouteListItem = (props) => {
     if (props.route.subRoutes === undefined) {
         return (
             <ListItem button className='list-item' path={props.route.id} onClick={ () => { navigateToContent(history, props.route.id) } }>
-                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
+                <ListItemText primary={ props.route.label } style={{ paddingLeft: `${props.listDepth * 16}px` }} />
             </ListItem>
         );
     }
@@ -135,7 +70,7 @@ const CollapsibleListItem = (props) => {
     return (
         <div>
             <ListItem button className='list-item' onClick={toggleOpen}>
-                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
+                <ListItemText primary={ props.route.label } style={{ paddingLeft: `${props.listDepth * 16}px` }} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open}>
@@ -153,13 +88,14 @@ const updateNavigationSelection = (newPath) => {
     for(const item of navigationItems) {
         const text = item.querySelector('span');
 
-        if(item.getAttribute('path') === newPath) {
-            text.style.fontWeight = 'bold';
-            text.style.color = 'DeepSkyBlue';
-        }
-        else {
-            text.style.fontWeight = null;
-            text.style.color = null;
+        if(text) {
+            if (item.getAttribute('path') === newPath) {
+                text.style.fontWeight = 'bold';
+                text.style.color = 'DeepSkyBlue';
+            } else {
+                text.style.fontWeight = null;
+                text.style.color = null;
+            }
         }
     }
 };
