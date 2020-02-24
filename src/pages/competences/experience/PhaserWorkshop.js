@@ -3,8 +3,8 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { ContentLink } from '../../../components/ContentNavigation'
 import Quote from '../../../components/Quote';
 
-const quoteText ='It isn\'t about "games", for me, personally, and it never really was. It was about creating something- anything- far bigger than yourself.';
-const quoteAuthor = 'Shigeru Miyamoto - Nintendo\'s most respected video game developer - GDC 2011';
+const quoteText ='\'It\'s the simplest game. One moving spot, two paddles, score digits\' – that was one of the harder things to actually make, to try to make those seven segment numerals, y\'know – and that was it.';
+const quoteAuthor = 'Allan Alcorn - Creator of Pong - Interview with IGN retrieved 2015-11-09';
 
 const PhaserWorkshop = () => {
     return (
@@ -19,7 +19,7 @@ const PhaserWorkshop = () => {
                 <br />
                 Next to this, I also explain a bit about video game development and game loops in general.
                 <br />
-                People really liked the workshop which also I've made available <a target='_blank' href='https://github.com/PijnappelJ/phaser-pong'>here<OpenInNewIcon fontSize="small"/></a>.
+                People really liked the workshop which also I've made available <a target='_blank' rel="noopener noreferrer" href='https://github.com/PijnappelJ/phaser-pong'>here<OpenInNewIcon fontSize="small"/></a>.
             </p>
             <p>
                 While giving this workshop I've had the opportunity to practice my <ContentLink href='/skills/soft-skills/presenting'>presenting</ContentLink> and of course my <ContentLink href='/skills/soft-skills/creativity'>creativity</ContentLink>.

@@ -11,7 +11,7 @@ const REACT = () => {
             <h1>React</h1>
             <Quote text={quoteText} author={quoteAuthor} />
             <p>
-                React is a very popular library/framework at the moment. According to <a target='_blank' href='https://hotframeworks.com/'>https://hotframeworks.com/</a> it scores the highest on Github and Stack Overflow since March 2019.
+                React is a very popular library/framework at the moment. According to <a target='_blank' rel="noopener noreferrer" href='https://hotframeworks.com/'>https://hotframeworks.com/</a> it scores the highest on Github and Stack Overflow since March 2019.
                 <br />
                 This was one of the reasons why I wanted to try it out myself. As first project I actually built <ContentLink href='/experience/projects/this-website'>this very website</ContentLink> you are browsing right now.
             </p>

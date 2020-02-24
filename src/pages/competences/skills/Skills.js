@@ -1,6 +1,6 @@
 import React from 'react';
-import { ContentLink } from '../../../../components/ContentNavigation';
-import Quote from '../../../../components/Quote';
+import { ContentLink } from '../../../components/ContentNavigation';
+import Quote from '../../../components/Quote';
 
 const quoteText ='Talent you have naturally. Skill is only developed by hours and hours and hours of beating on your craft.';
 const quoteAuthor = 'Will Smith';
@@ -15,7 +15,7 @@ const Skills = () => {
                 I'm constantly trying to improve or learn new skills.
             </p>
             <p>
-                I've worked with multiple languages such as <ContentLink href='/skills/hard-skills/languages/javascript'>Javascript</ContentLink>, <ContentLink href='/skills/hard-skills/languages/java'>Java</ContentLink> and <ContentLink href='/skills/hard-skills/languages/c++'>C++</ContentLink>.
+                I've worked with multiple languages such as <ContentLink href='/skills/hard-skills/programming-languages/javascript'>Javascript</ContentLink>, <ContentLink href='/skills/hard-skills/programming-languages/java'>Java</ContentLink> and <ContentLink href='/skills/hard-skills/programming-languages/c++'>C++</ContentLink>.
                 <br/>
                 I've also used a variety of frameworks and tools, which you can all find in the navigation menu.
             </p>

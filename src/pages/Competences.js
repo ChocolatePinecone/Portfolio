@@ -20,7 +20,7 @@ import Communication from './competences/skills/soft-skills/Communication';
 import Presenting from './competences/skills/soft-skills/Presenting';
 import Learning from './competences/skills/soft-skills/Learning';
 import Creativity from './competences/skills/soft-skills/Creativity';
-import Skills from './competences/skills/hard-skills/Skills';
+import Skills from './competences/skills/Skills';
 import Experience from './competences/experience/Experience';
 import ING from './competences/experience/ING';
 import ThisWebsite from './competences/experience/ThisWebsite';

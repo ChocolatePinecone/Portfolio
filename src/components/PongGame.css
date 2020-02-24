@@ -1,0 +1,19 @@
+#pong-game #controls {
+    text-align: center;
+}
+
+#pong-game #controls table {
+    margin: auto;
+    text-align: left;
+}
+
+#pong-game #controls table td {
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    #pong-game {
+        display: none;
+    }
+}

@@ -20,7 +20,7 @@ const ThisWebsite = () => {
                 I've set this whole website up while in between assignments and simultaneously working on other in-house projects at Ordina.
             </p>
             <p>
-                If you're curious to see the source code, it's available <a target='_blank' href='https://github.com/ChocolatePinecone/Portfolio'>here<OpenInNewIcon fontSize="small"/></a>
+                If you're curious to see the source code, it's available <a target='_blank' rel="noopener noreferrer" href='https://github.com/ChocolatePinecone/Portfolio'>here<OpenInNewIcon fontSize="small"/></a>
             </p>
             <p>
                 A small summary of what was used for building the website:
@@ -43,11 +43,11 @@ const ThisWebsite = () => {
                     </tr>
                     <tr>
                         <td>Hosting:</td>
-                        <td><a target='_blank' href='https://firebase.google.com/'>Firebase<OpenInNewIcon fontSize="small"/></a></td>
+                        <td><a target='_blank' rel="noopener noreferrer" href='https://firebase.google.com/'>Firebase<OpenInNewIcon fontSize="small"/></a></td>
                     </tr>
                     <tr>
                         <td>Source control:</td>
-                        <td>Git (<a target='_blank' href='https://github.com/ChocolatePinecone/Portfolio'>Github<OpenInNewIcon fontSize="small"/></a>)</td>
+                        <td>Git (<a target='_blank' rel="noopener noreferrer" href='https://github.com/ChocolatePinecone/Portfolio'>Github<OpenInNewIcon fontSize="small"/></a>)</td>
                     </tr>
                 </table>
             </p>
