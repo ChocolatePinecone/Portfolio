@@ -1,7 +1,6 @@
 import Phaser from 'phaser'
 import React from 'react';
 import './PongGame.css';
-import dottedLine from '../assets/pong/dotted-line.png'
 
 // Configuration for Phaser
 const config = {
@@ -29,6 +28,9 @@ let ball;
 let scoreTextLeft, scoreTextRight;
 let scoreLeft = 0, scoreRight = 0;
 
+// Game object
+let game;
+
 class PongGame extends React.Component {
     render() {
         return (
@@ -55,27 +57,62 @@ class PongGame extends React.Component {
                         </tbody>
                     </table>
                 </div>
-                <div id='pong'/>
+                <div id='pong' />
             </div>
         );
     }
 
     componentDidMount() {
-        // Determine Pong game width and height with aspect ratio so the game does not extend past the visible view
-        config.width = document.getElementById('pong-game').offsetWidth;
-        config.height = 0.78125 * config.width;
+        // Initialize Game
+        initGame();
 
-        // Initialize the game with the defined configuration. It will attach to the desired div by itself.
-        new Phaser.Game(config);
+        // Subscribe listener to resize event to re-initialize game with correct size
+        window.onresize = checkResizeDone;
     }
+}
+
+// Initialize and set game size to fit window size
+function initGame() {
+    // Determine needed game size
+    config.width = document.getElementById('pong-game').offsetWidth;
+    config.height = 0.78125 * config.width;
+
+    // Destroy the previously instantiated game if its present
+    if(game) {
+        game.events.addListener('destroy', reconstructGame);
+        game.destroy(true);
+    }
+    else {
+        game = new Phaser.Game(config);
+    }
+}
+
+// Function to trigger game reinitialization after resize is done
+let resizeTimer;
+function checkResizeDone() {
+    // Keep restarting timer if function is called multiple times
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Reinitialize game if resizing has stopped for the set time duration (indicating resizing is done)
+        initGame();
+    }, 250);
+}
+
+// Reconstruct game on destruction
+function reconstructGame() {
+    // Reconstruct game after timer, because there is no 'after destruction' event
+    setTimeout(() => {
+        game = null;
+        initGame();
+    }, 250)
 }
 
 // Load all necessary resources before game starts
 function preload () {
     // Load images
-    this.load.image('dotted-line', '%PUBLIC_URL%/assets/pong/dotted-line.png');
-    this.load.image('paddle', '%PUBLIC_URL%/assets/pong/paddle.png');
-    this.load.image('ball', '%PUBLIC_URL%/assets/pong/ball.png');
+    this.load.image('dotted-line', '../../assets/pong/dotted-line.png');
+    this.load.image('paddle', '../../assets/pong/paddle.png');
+    this.load.image('ball', '../../assets/pong/ball.png');
 
     // Initialize button listeners
     upButton = this.input.keyboard.addKey('UP');
