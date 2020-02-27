@@ -1,4 +1,4 @@
-import Phaser from 'phaser'
+import Phaser from 'phaser';
 import React from 'react';
 import './PongGame.css';
 
@@ -7,13 +7,13 @@ const config = {
     type: Phaser.AUTO,
     parent: 'pong',
     physics: {
-        default: 'arcade'
+        default: 'arcade',
     },
     scene: {
-        preload: preload,
-        create: create,
-        update: update
-    }
+        preload,
+        create,
+        update,
+    },
 };
 
 // Game constants
@@ -22,16 +22,28 @@ const paddleSpeed = 400;
 const scoreMarginFromCenter = 20;
 
 // Game variables
-let paddles, player1Paddle, player2Paddle;
-let upButton, downButton, wButton, sButton;
+let paddles; let player1Paddle; let
+    player2Paddle;
+let upButton; let downButton; let wButton; let
+    sButton;
 let ball;
-let scoreTextLeft, scoreTextRight;
-let scoreLeft = 0, scoreRight = 0;
+let scoreTextLeft; let
+    scoreTextRight;
+let scoreLeft = 0; let
+    scoreRight = 0;
 
 // Game object
 let game;
 
 class PongGame extends React.Component {
+    componentDidMount() {
+        // Initialize Game
+        initGame();
+
+        // Subscribe listener to resize event to re-initialize game with correct size
+        window.onresize = checkResizeDone;
+    }
+
     render() {
         return (
             <div id='pong-game'>
@@ -40,19 +52,19 @@ class PongGame extends React.Component {
                     <table>
                         <tbody>
                             <tr>
-                                <td/>
+                                <td />
                                 <td><strong>Player Left:</strong></td>
                                 <td><strong>Player Right:</strong></td>
                             </tr>
                             <tr>
                                 <td>Move paddle up:</td>
-                                <td>'W' button</td>
-                                <td>'Arrow Up' button</td>
+                                <td>{'\'W\' button'}</td>
+                                <td>{'\'Arrow Up\' button'}</td>
                             </tr>
                             <tr>
                                 <td>Move paddle down:</td>
-                                <td>'S' button</td>
-                                <td>'Arrow Down' button</td>
+                                <td>{'\'S\' button'}</td>
+                                <td>{'\'Arrow Down\' button'}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -60,14 +72,6 @@ class PongGame extends React.Component {
                 <div id='pong' />
             </div>
         );
-    }
-
-    componentDidMount() {
-        // Initialize Game
-        initGame();
-
-        // Subscribe listener to resize event to re-initialize game with correct size
-        window.onresize = checkResizeDone;
     }
 }
 
@@ -78,7 +82,7 @@ function initGame() {
     config.height = 0.78125 * config.width;
 
     // Destroy the previously instantiated game if its present
-    if(game) {
+    if (game) {
         game.events.addListener('destroy', reconstructGame);
         game.destroy(true);
     }
@@ -104,11 +108,11 @@ function reconstructGame() {
     setTimeout(() => {
         game = null;
         initGame();
-    }, 250)
+    }, 250);
 }
 
 // Load all necessary resources before game starts
-function preload () {
+function preload() {
     // Load images
     this.load.image('dotted-line', '../../assets/pong/dotted-line.png');
     this.load.image('paddle', '../../assets/pong/paddle.png');
@@ -122,7 +126,7 @@ function preload () {
 }
 
 // Create game objects at start of game
-function create () {
+function create() {
     // Create dotted line in the middle of the screen
     this.add.image(config.width * 0.5, config.height * 0.5, 'dotted-line');
 
@@ -147,9 +151,9 @@ function create () {
     launchBall();
 
     // Create the score text and align it
-    scoreTextLeft = this.add.text(config.width * 0.5 - scoreMarginFromCenter, config.height * 0.5, "0", { font: "65px Arial", fill: "#878787" });
+    scoreTextLeft = this.add.text(config.width * 0.5 - scoreMarginFromCenter, config.height * 0.5, '0', { font: '65px Arial', fill: '#878787' });
     scoreTextLeft.setOrigin(1, 0.5); // Align left score to the left of the position
-    scoreTextRight = this.add.text(config.width * 0.5 + scoreMarginFromCenter, config.height * 0.5, "0", { font: "65px Arial", fill: "#878787" });
+    scoreTextRight = this.add.text(config.width * 0.5 + scoreMarginFromCenter, config.height * 0.5, '0', { font: '65px Arial', fill: '#878787' });
     scoreTextRight.setOrigin(0, 0.5); // Align left score to the left of the position
 
     // Add collision response for when ball collides with a paddle
@@ -157,7 +161,7 @@ function create () {
 }
 
 // Game logic while running the game
-function update () {
+function update() {
     // Check player controls and update paddle movement if necessary
     updatePlayerControls();
 
@@ -165,10 +169,9 @@ function update () {
     checkBallWallCollision();
 }
 
-function updatePlayerControls () {
+function updatePlayerControls() {
     // Player 1 controls
-    if (wButton.isDown)
-    {
+    if (wButton.isDown) {
         // Player 1 going up
         player1Paddle.setVelocityY(-paddleSpeed);
     }
@@ -182,8 +185,7 @@ function updatePlayerControls () {
     }
 
     // Player 2 controls
-    if (upButton.isDown)
-    {
+    if (upButton.isDown) {
         // Player 2 going up
         player2Paddle.setVelocityY(-paddleSpeed);
     }
@@ -197,23 +199,23 @@ function updatePlayerControls () {
     }
 }
 
-function launchBall () {
+function launchBall() {
     // Calculate velocity limit
     const vLimit = 0.25 * config.width;
 
     // Set random ball velocity
-    let randomVelocity = {x:0, y:0};
+    let randomVelocity = { x: 0, y: 0 };
     randomVelocity = Phaser.Math.RandomXY(randomVelocity, vLimit); // Get random velocity values between - limit and + limit
     randomVelocity.x = (randomVelocity.x < 0) ? -vLimit : vLimit; // Set velocity x to a fixed starting value of -200 or 200
 
     ball.setVelocity(randomVelocity.x, randomVelocity.y);
 }
 
-function checkBallWallCollision () {
+function checkBallWallCollision() {
     // Reset ball if it is hitting left or right walls
-    if(ball.body.onWall()) {
+    if (ball.body.onWall()) {
         // If ball hits left wall
-        if(ball.body.left <= 0) {
+        if (ball.body.left <= 0) {
             scoreRight += 1;
             scoreTextRight.setText(scoreRight);
         }
@@ -227,7 +229,7 @@ function checkBallWallCollision () {
     }
 }
 
-function resetBall () {
+function resetBall() {
     // Reset the ball by enabling the it again and resetting the position
     ball.setPosition(config.width * 0.5, config.height * 0.5);
 
@@ -235,15 +237,15 @@ function resetBall () {
     launchBall();
 }
 
-function ballPaddleCollision (ballRef, paddleRef) {
+function ballPaddleCollision(ballRef, paddleRef) {
     // Determine difference in angle between center of paddle and center of ball
-    let yDiff = ballRef.y - paddleRef.y;
+    const yDiff = ballRef.y - paddleRef.y;
 
     // Add vertical velocity to ball based on the place it hit the paddle
     ballRef.body.velocity.y += yDiff * 5; // Multiply with a factor to enlarge the velocity change
 
     // Increase horizontal velocity with each paddle hit just for fun, with a max of 500
-    if(ballRef.body.velocity.x < 500) {
+    if (ballRef.body.velocity.x < 500) {
         ballRef.body.velocity.x += (ballRef.body.velocity.x < 0) ? -10 : 10;
     }
 }

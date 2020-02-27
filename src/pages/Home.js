@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css'
+import './Home.css';
 import logo from '../assets/images/logo.png';
 import { PageNavigation } from '../components/PageNavigation';
 

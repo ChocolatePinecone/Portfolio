@@ -1,13 +1,14 @@
 import React from 'react';
-import './Competences.css'
-import { ContentNavigation } from '../components/ContentNavigation';
-import logo from '../assets/images/logo.png';
-import { redirectToPath} from '../components/PageNavigation';
+import './Competences.css';
 import {
     Switch,
     Route,
     useHistory,
 } from 'react-router-dom';
+import { ContentNavigation } from '../components/ContentNavigation';
+import logo from '../assets/images/logo.png';
+import toggleMobileMenu from '../utils/toggleMobileMenu';
+import { redirectToPath } from '../components/PageNavigation';
 import Javascript from './competences/skills/hard-skills/Javascript';
 import Java from './competences/skills/hard-skills/Java';
 import Cplusplus from './competences/skills/hard-skills/C++';
@@ -76,49 +77,51 @@ const routes = [
             {
                 label: 'Companies',
                 subRoutes: [
-                    { label: 'ING' }
-                ]
+                    { label: 'ING' },
+                ],
             },
             {
                 label: 'Projects',
                 subRoutes: [
                     { label: 'This website' },
                     { label: 'Rocket-Shipment' },
-                    { label: 'My Phaser workshop' }
-                ]
+                    { label: 'My Phaser workshop' },
+                ],
             },
-        ]
-    }
+        ],
+    },
 ];
 
-export const Competences = () => {
+const Competences = () => {
     const history = useHistory();
 
     return (
         <div id='competences'>
             <div className='header-menu'>
                 <div className='logo-container'>
-                    <img src={logo} className='logo' alt='Jelmer Pijnappel' onClick={ () => { redirectToPath(history, '/') } }/>
+                    <button type='button' className='logo' onClick={() => redirectToHome(history)}>
+                        <img src={logo} alt='Jelmer Pijnappel' />
+                    </button>
                 </div>
-                <div className='mobile-burger-container' onClick={toggleMobileMenu}>
-                    <div id='mobile-burger' >
-                        <div className='bar topBar'/>
-                        <div className='bar btmBar'/>
+                <button type='button' className='mobile-burger-container' onClick={toggleMobileMenu}>
+                    <div id='mobile-burger'>
+                        <div className='bar topBar' />
+                        <div className='bar btmBar' />
                     </div>
-                </div>
+                </button>
             </div>
             <div className='body'>
                 <ContentNavigation routes={routes} />
                 <div className='content'>
                     <Switch>
                         <Route path='/skills/hard-skills/programming-languages/javascript'>
-                            <Javascript/>
+                            <Javascript />
                         </Route>
                         <Route path='/skills/hard-skills/programming-languages/java'>
-                            <Java/>
+                            <Java />
                         </Route>
                         <Route path='/skills/hard-skills/programming-languages/c++'>
-                            <Cplusplus/>
+                            <Cplusplus />
                         </Route>
                         <Route path='/skills/hard-skills/frameworks/polymer'>
                             <Polymer />
@@ -148,7 +151,7 @@ export const Competences = () => {
                             <Creativity />
                         </Route>
                         <Route path='/skills'>
-                            <Skills/>
+                            <Skills />
                         </Route>
                         <Route path='/experience/companies/ing'>
                             <ING />
@@ -172,10 +175,12 @@ export const Competences = () => {
     );
 };
 
-export const toggleMobileMenu = () => {
-    const burger = document.querySelector('.mobile-burger-container');
-    const nav = document.querySelector('.navigation');
+function redirectToHome(history) {
+    // Redirect to Home
+    redirectToPath(history, '/');
 
-    burger.classList.toggle('menu-opened');
-    nav.classList.toggle('menu-opened');
-};
+    // Return false to disable further navigation by the anchor calling this
+    return false;
+}
+
+export default Competences;

@@ -10,18 +10,20 @@
   "rules": {
     "strict": "error",
     "indent": ["error", 4],
+    "eol-last": ["off"],
+    "no-param-reassign": ["off"],
+    "max-len": ["warn", { "code": 200 }],
+    "no-use-before-define": ["off"],
+    "brace-style": ["error", "stroustrup"],
+    "jsx-quotes": ["error", "prefer-single"],
     "react/jsx-indent": ["error", 4],
     "react/jsx-indent-props": ["error", 4],
     "react/jsx-filename-extension": ["off"],
     "react/destructuring-assignment": ["error", "never"],
     "react/prop-types": ["off"],
     "react/jsx-tag-spacing": ["error"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "max-len": ["warn", { "code": 200 }],
-    "no-use-before-define": ["off"],
-    "import/no-mutable-exports": ["off"],
-    "eol-last": ["off"],
-    "no-param-reassign": ["off"]
+    "react/jsx-one-expression-per-line": ["off"],
+    "import/no-mutable-exports": ["off"]
   },
   "parserOptions": {
     "ecmaVersion": 6,

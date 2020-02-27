@@ -11,7 +11,13 @@ export const PageNavigation = () => {
     const history = useHistory();
 
     return (
-        <BottomNavigation onChange={ (event, path) => { redirectToPath(history, path); } } showLabels className='nav'>
+        <BottomNavigation
+            onChange={(event, path) => {
+                redirectToPath(history, path);
+            }}
+            showLabels
+            className='nav'
+        >
             <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/about' label='About' icon={<InfoOutlinedIcon fontSize='large' />} />
             <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/skills' label='Skills' icon={<CodeOutlinedIcon fontSize='large' />} />
             <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/experience' label='Experience' icon={<PeopleAltOutlinedIcon fontSize='large' />} />
@@ -24,13 +30,11 @@ export const redirectionType = Object.freeze({ PAGE: 0, CONTENT: 1 });
 export const redirectToPath = (history, path, type = redirectionType.PAGE) => {
     // Determine element selector to use for fading
     let selector = '';
-    if(type === redirectionType.PAGE)
-        selector = '.page';
-    else if (type === redirectionType.CONTENT)
-        selector = '.content';
+    if (type === redirectionType.PAGE) selector = '.page';
+    else if (type === redirectionType.CONTENT) selector = '.content';
 
 
-    if(selector !== '') {
+    if (selector !== '') {
         // Fade out current content
         document.querySelector(selector)
             .classList

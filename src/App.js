@@ -7,25 +7,25 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import { Competences } from './pages/Competences';
+import Competences from './pages/Competences';
 
-const App = () => {
-    return (<div className='App'>
+const App = () => (
+    <div className='App'>
         <header className='App-header'>
             <div className='page'>
                 <Router>
                     <Switch>
                         <Route path='/about'>
-                            <About/>
+                            <About />
                         </Route>
                         <Route path='/skills'>
-                            <Competences/>
+                            <Competences />
                         </Route>
                         <Route path='/experience'>
-                            <Competences/>
+                            <Competences />
                         </Route>
                         <Route path='/'>
-                            <Home/>
+                            <Home />
                         </Route>
                     </Switch>
                 </Router>
@@ -33,14 +33,14 @@ const App = () => {
         </header>
 
         {/* The core Firebase JS SDK is always required and must be listed first */}
-        <script src='/__/firebase/7.6.1/firebase-app.js'/>
+        <script src='/__/firebase/7.6.1/firebase-app.js' />
 
         {/* TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries */}
-        <script src='/__/firebase/7.6.1/firebase-analytics.js'/>
+        <script src='/__/firebase/7.6.1/firebase-analytics.js' />
 
         {/* Initialize Firebase */}
-        <script src='/__/firebase/init.js'/>
-    </div>);
-};
+        <script src='/__/firebase/init.js' />
+    </div>
+);
 
 export default App;
