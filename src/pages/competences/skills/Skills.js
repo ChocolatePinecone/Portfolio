@@ -14,9 +14,9 @@ const Skills = () => (
             I&apos;m constantly trying to improve or learn new skills.
         </p>
         <p>
-            I&apos;ve worked with multiple languages such as
-            <ContentLink href='/skills/hard-skills/programming-languages/javascript'>Javascript</ContentLink>,
-            <ContentLink href='/skills/hard-skills/programming-languages/java'>Java</ContentLink> and
+            I&apos;ve worked with multiple languages such as&nbsp;
+            <ContentLink href='/skills/hard-skills/programming-languages/javascript'>Javascript</ContentLink>,&nbsp;
+            <ContentLink href='/skills/hard-skills/programming-languages/java'>Java</ContentLink> and&nbsp;
             <ContentLink href='/skills/hard-skills/programming-languages/c++'>C++</ContentLink>.
             <br />
             I&apos;ve also used a variety of frameworks and tools, which you can all find in the navigation menu.

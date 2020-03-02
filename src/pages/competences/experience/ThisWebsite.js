@@ -20,8 +20,8 @@ const ThisWebsite = () => (
             I&apos;ve set this whole website up while in between assignments and simultaneously working on other in-house projects at Ordina.
         </p>
         <p>
-            If you&apos;re curious to see the source code, it&apos;s available
-            <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/Portfolio'>here<OpenInNewIcon fontSize='small' /></a>
+            If you&apos;re curious to see the source code, it&apos;s
+            available <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/Portfolio'>here<OpenInNewIcon fontSize='small' /></a>
         </p>
         <p>
             A small summary of what was used for building the website:
@@ -53,7 +53,7 @@ const ThisWebsite = () => (
                     </tr>
                     <tr>
                         <td>UI Elements:</td>
-                        <td><a target='_blank' rel='noopener noreferrer' href='https://material-ui.com/'>Marterial UI<OpenInNewIcon fontSize='small' /></a></td>
+                        <td><a target='_blank' rel='noopener noreferrer' href='https://material-ui.com/'>Material UI<OpenInNewIcon fontSize='small' /></a></td>
                     </tr>
                 </tbody>
             </table>

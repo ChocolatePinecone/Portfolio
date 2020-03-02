@@ -19,8 +19,7 @@ const ESLint = () => (
             <br />
             I&apos;ve experimented with some more thorough linting, and I have to say I really like it.
             <br />
-            <ContentLink href='/experience/projects/this-website'>This website</ContentLink>
-            is set up with pretty thorough linting, which makes for a lot of clean, readable code.
+            <ContentLink href='/experience/projects/this-website'>This website</ContentLink> is set up with pretty thorough linting, which makes for a lot of clean, readable code.
         </p>
         <p>
             The nice thing about ESLint is the fact that so many frameworks or dependencies have plugins for it.

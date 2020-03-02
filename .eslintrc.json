@@ -14,7 +14,7 @@
     "no-param-reassign": ["off"],
     "max-len": ["warn", { "code": 200 }],
     "no-use-before-define": ["off"],
-    "brace-style": ["error", "stroustrup"],
+    "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
     "jsx-quotes": ["error", "prefer-single"],
     "react/jsx-indent": ["error", 4],
     "react/jsx-indent-props": ["error", 4],

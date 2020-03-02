@@ -13,8 +13,8 @@ const Presenting = () => (
             A good presenting skill is partly built from experience and learning, but also partly needs to come naturally from of charisma and social skills.
         </p>
         <p>
-            During my time at <ContentLink href='/experience/companies/ing'>ING</ContentLink>
-            I&apos;ve discovered that I really like presenting because of my desire to share knowledge and to do this in a way everyone understands.
+            During my time at <ContentLink href='/experience/companies/ing'>ING</ContentLink> I&apos;ve
+            discovered that I really like presenting because of my desire to share knowledge and to do this in a way everyone understands.
             <br />
             I&apos;ve presented sprint demos, and I&apos;ve given workshops and other informational sessions. I&apos;ve also acted as scrum master numerous of times.
         </p>

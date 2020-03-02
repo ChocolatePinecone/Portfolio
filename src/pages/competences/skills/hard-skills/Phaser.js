@@ -23,7 +23,7 @@ const Phaser = () => (
         </p>
         <p>
             Game development is a big hobby of mine! if you&apos;re interested, check out my self made game
-            <ContentLink href='/experience/projects/rocket-shipment'>Rocket Shipment</ContentLink> and its
+            <ContentLink href='/experience/projects/rocket-shipment'>Rocket Shipment</ContentLink> and its&nbsp;
             <a target='_blank' rel='noopener noreferrer' href='https://store.steampowered.com/app/1237310/Rocket_Shipment/'>Steam page<OpenInNewIcon fontSize='small' /></a>.
         </p>
     </div>

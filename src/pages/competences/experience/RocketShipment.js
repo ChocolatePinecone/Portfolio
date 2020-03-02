@@ -19,7 +19,7 @@ const RocketShipment = () => (
         </p>
         <p>
             Even though the general idea of the game might sound simple, it&apos;s a huge project.
-            I&apos;m releasing this game on one of the biggest game marketplaces,
+            I&apos;m releasing this game on one of the biggest game marketplaces,&nbsp;
             <a target='_blank' rel='noopener noreferrer' href='https://store.steampowered.com/app/1237310/Rocket_Shipment/'>Steam<OpenInNewIcon fontSize='small' /></a>.
             <br />
             The challenges do not only lie in programming the game, but also in marketing and translation to name a few.

@@ -99,7 +99,7 @@ const Competences = () => {
         <div id='competences'>
             <div className='header-menu'>
                 <div className='logo-container'>
-                    <button type='button' className='logo' onClick={() => redirectToHome(history)}>
+                    <button type='button' className='logo' onClick={() => redirectToPath(history, '/')}>
                         <img src={logo} alt='Jelmer Pijnappel' />
                     </button>
                 </div>
@@ -174,13 +174,5 @@ const Competences = () => {
         </div>
     );
 };
-
-function redirectToHome(history) {
-    // Redirect to Home
-    redirectToPath(history, '/');
-
-    // Return false to disable further navigation by the anchor calling this
-    return false;
-}
 
 export default Competences;

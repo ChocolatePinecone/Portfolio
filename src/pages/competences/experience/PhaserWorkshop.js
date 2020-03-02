@@ -22,12 +22,12 @@ const PhaserWorkshop = () => (
             <br />
             Next to this, I also explain a bit about video game development and game loops in general.
             <br />
-            People really liked the workshop which also I&apos;ve made available
-            <a target='_blank' rel='noopener noreferrer' href='https://github.com/PijnappelJ/phaser-pong'>here<OpenInNewIcon fontSize='small' /></a>.
+            People really liked the workshop which also I&apos;ve made
+            available <a target='_blank' rel='noopener noreferrer' href='https://github.com/PijnappelJ/phaser-pong'>here<OpenInNewIcon fontSize='small' /></a>.
         </p>
         <p>
-            While giving this workshop I&apos;ve had the opportunity to practice my <ContentLink href='/skills/soft-skills/presenting'>presenting</ContentLink>
-            and of course my <ContentLink href='/skills/soft-skills/creativity'>creativity</ContentLink>.
+            While giving this workshop I&apos;ve had the opportunity to practice my <ContentLink href='/skills/soft-skills/presenting'>presenting</ContentLink> and
+            of course my <ContentLink href='/skills/soft-skills/creativity'>creativity</ContentLink>.
         </p>
         <p>
             If you&apos;re viewing this page on a PC, the result of the workshop can be played below!

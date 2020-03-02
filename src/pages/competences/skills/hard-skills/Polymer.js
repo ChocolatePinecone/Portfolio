@@ -12,7 +12,7 @@ const Polymer = () => (
         <p>
             Polymer is a framework you don&apos;t hear a lot about, since most companies currently use Angular, Vue or React.
             Polymer is however still used by a couple of big names such as
-            Youtube, Google Earth, McDonald&apos;s, Coca-Cola, Github, and of course the place where I got my experience:
+            Youtube, Google Earth, McDonald&apos;s, Coca-Cola, Github, and of course the place where I got my experience:&nbsp;
             <ContentLink href='/experience/companies/ing'>ING</ContentLink>.
         </p>
         <p>

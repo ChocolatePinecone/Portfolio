@@ -13,7 +13,7 @@ const REACT = () => (
         <Quote text={quoteText} author={quoteAuthor} />
         <p>
             React is a very popular library/framework at the moment.
-            According to <a target='_blank' rel='noopener noreferrer' href='https://hotframeworks.com/'>https://hotframeworks.com/</a>
+            According to <a target='_blank' rel='noopener noreferrer' href='https://hotframeworks.com/'>https://hotframeworks.com/</a>&nbsp;
             it scores the highest on Github and Stack Overflow since March 2019.
             <br />
             This was one of the reasons why I wanted to try it out myself.
@@ -23,7 +23,7 @@ const REACT = () => (
             I personally really like React because of its flexibility.
             It&apos;s not really a framework, but more a library allowing you to use it as lightly or heavily as you want.
             <br />
-            The JSX syntax introduced by React is a breeze to use and fully incorporates the powers of native
+            The JSX syntax introduced by React is a breeze to use and fully incorporates the powers of native&nbsp;
             <ContentLink href='/skills/hard-skills/programming-languages/javascript'>javascript</ContentLink>.
         </p>
         <p>
