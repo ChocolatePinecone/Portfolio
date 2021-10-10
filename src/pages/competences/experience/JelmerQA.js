@@ -142,7 +142,7 @@ class JelmerQA extends React.Component {
                     That&apos;s it in a nutshell. Of course this means that by entering your email below, you are agreeing to storing your mail address in my database up until I answer your question.
                     I will not use your email for any other purpose.
                 </p>
-                <p><b>This form is still under construction and will not work just yet, unfortunately.</b></p>
+                <p style={{ color: 'crimson' }}><b>This form is still under construction and will not work just yet, unfortunately.</b></p>
 
                 <form className='form' onSubmit={this.onSubmitForm}>
                     <InputField
