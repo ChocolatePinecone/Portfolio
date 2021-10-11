@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Quote from '../../../components/Quote';
 
 const quoteText = 'The important thing is not to stop questioning. Curiosity has its own reason for existence.';
@@ -141,6 +142,9 @@ class JelmerQA extends React.Component {
                 <p>
                     That&apos;s it in a nutshell. Of course this means that by entering your email below, you are agreeing to storing your mail address in my database up until I answer your question.
                     I will not use your email for any other purpose.
+                </p>
+                <p>
+                    If you&apos;re interested the backend code repo can be found <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>here<OpenInNewIcon fontSize='small' /></a>.
                 </p>
                 <p style={{ color: 'crimson' }}><b>This form is still under construction and will not work just yet, unfortunately.</b></p>
 
