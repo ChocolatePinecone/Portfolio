@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 import { useHistory } from 'react-router-dom';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import picture from '../assets/images/me.png';
+import picture from '../assets/images/me.webp';
 import { PageNavigation, redirectToPath } from '../components/PageNavigation';
 
 const urlING = '/experience/companies/ing';
@@ -10,16 +10,17 @@ const urlJava = '/skills/hard-skills/programming-languages/java';
 const urlJavascript = '/skills/hard-skills/programming-languages/javascript';
 const urlCplusplus = '/skills/hard-skills/programming-languages/c++';
 const urlRocketShipment = '/experience/projects/rocket-shipment';
+const urlJelmerQA = '/experience/projects/jelmerqa';
 
 const About = () => {
     const history = useHistory();
 
     return (
         <div id='about'>
-            <img src={picture} alt='Me, drinking a coffee at Starbucks in a cup with my name on it' />
+            <img src={picture} alt='Me, carrying my daughter on my shoulders' />
 
             <p>
-                Hey! My name is Jelmer Pijnappel (which you probably couldn&apos;t miss on your way getting here).
+                Hey! My name is Jelmer Pijnappel.
                 <br />
                 I&apos;m a first time dad of my little girl Ivy, a husband to my lovely wife Dragana and a coding enthusiast.
             </p>
@@ -31,9 +32,10 @@ const About = () => {
             </p>
             <p>
                 Soon after joining Ordina (August 2017), I started as a Frontend Engineer
-                at <a href={urlING} onClick={() => { redirect(history, urlING); }}>ING</a> (September 2017).
+                at <a href={urlING} onClick={() => { redirect(history, urlING); }}>ING</a>.
                 Even though I&apos;ve enjoyed my time there a lot, I wanted to develop myself towards becoming a Fullstack Engineer.
                 Unfortunately ING did not have any Fullstack or Backend opportunities for me, so I decided to search further outside of ING.
+                Currently I&apos;m working fullstack on a project for the Police Netherlands.
             </p>
 
             <h2>Passions</h2>
@@ -49,7 +51,7 @@ const About = () => {
                 for <a href={urlRocketShipment} onClick={() => { redirect(history, urlRocketShipment); }}>my latest game</a>.
             </p>
             <p>
-                I also like reading books about psychology, memory and other informational subjects.
+                I also like reading books about and all kinds of informational subjects like psychology or science.
                 <br />
                 Next to this I love playing games (both board and digital among others).
             </p>
@@ -68,6 +70,7 @@ const About = () => {
                 <br />
                 If you have any questions feel free to ask me through the same way I gave you this website link, or shoot me a message on
                 my  <a target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/in/jelmer-pijnappel/'>LinkedIn page<OpenInNewIcon fontSize='small' /></a>.
+                As part of a personal project I&apos;ve also built a question API that you can use to ask me stuff <a href={urlJelmerQA} onClick={() => { redirect(history, urlJelmerQA); }}>here</a>.
             </p>
             <PageNavigation className='nav' />
         </div>
