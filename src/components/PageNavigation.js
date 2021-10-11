@@ -33,7 +33,6 @@ export const redirectToPath = (history, path, type = redirectionType.PAGE) => {
     if (type === redirectionType.PAGE) selector = '.page';
     else if (type === redirectionType.CONTENT) selector = '.content';
 
-
     if (selector !== '') {
         // Fade out current content
         document.querySelector(selector)

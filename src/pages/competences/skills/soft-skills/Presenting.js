@@ -19,8 +19,7 @@ const Presenting = () => (
             I&apos;ve presented sprint demos, and I&apos;ve given workshops and other informational sessions. I&apos;ve also acted as scrum master numerous of times.
         </p>
         <p>
-            I& desire to learn is reflected in my hobbies which almost always involve learning or mastering a skill.
-                Forapos;m glad to do any presenting needed inside and outside the team.
+            I&apos;m happy to do any presenting needed inside and outside the team.
         </p>
     </div>
 );

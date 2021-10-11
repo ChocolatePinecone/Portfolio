@@ -25,6 +25,7 @@ import Skills from './competences/skills/Skills';
 import Experience from './competences/experience/Experience';
 import ING from './competences/experience/ING';
 import ThisWebsite from './competences/experience/ThisWebsite';
+import JelmerQA from './competences/experience/JelmerQA';
 import RocketShipment from './competences/experience/RocketShipment';
 import PhaserWorkshop from './competences/experience/PhaserWorkshop';
 
@@ -84,6 +85,7 @@ const routes = [
                 label: 'Projects',
                 subRoutes: [
                     { label: 'This website' },
+                    { label: 'JelmerQA' },
                     { label: 'Rocket-Shipment' },
                     { label: 'My Phaser workshop' },
                 ],
@@ -158,6 +160,9 @@ const Competences = () => {
                         </Route>
                         <Route path='/experience/projects/this-website'>
                             <ThisWebsite />
+                        </Route>
+                        <Route path='/experience/projects/jelmerqa'>
+                            <JelmerQA />
                         </Route>
                         <Route path='/experience/projects/rocket-shipment'>
                             <RocketShipment />
