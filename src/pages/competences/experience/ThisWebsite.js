@@ -14,7 +14,7 @@ const ThisWebsite = () => (
             Showing your skill is much better than trying to convince someone of your skill. This website is meant to do just that, to show my skill and that I&apos;m worth hiring.
         </p>
         <p>
-            Before making this website I had no experience with <ContentLink href='/skills/frameworks/react'>React</ContentLink> at all.
+            Before making this website I had no experience with <ContentLink href='/skills/hard-skills/frameworks/react'>React</ContentLink> at all.
             Currently it&apos;s one of the most popular frameworks/libraries, so I really wanted to give it a try.
             <br />
             I&apos;ve set this whole website up while in between assignments and simultaneously working on other in-house projects at Ordina.
@@ -29,7 +29,7 @@ const ThisWebsite = () => (
                 <tbody>
                     <tr>
                         <td>Framework:</td>
-                        <td><ContentLink href='/skills/frameworks/react'>React</ContentLink></td>
+                        <td><ContentLink href='/skills/hard-skills/frameworks/react'>React</ContentLink></td>
                     </tr>
                     <tr>
                         <td>Linting:</td>

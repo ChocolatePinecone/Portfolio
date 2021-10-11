@@ -70,11 +70,7 @@
 }
 .header-menu .mobile-burger-container #mobile-burger {
     width: 18px;
-    height: 12px;
-    position: relative;
-    display: block;
     margin: -4px auto 0;
-    top: 50%;
 }
 .header-menu .mobile-burger-container #mobile-burger .bar {
     width: 100%;
