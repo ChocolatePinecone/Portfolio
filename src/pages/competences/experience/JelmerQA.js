@@ -9,6 +9,7 @@ const quoteText = 'The important thing is not to stop questioning. Curiosity has
 const quoteAuthor = 'Albert Einstein - Death of a Genius–Old Man’s Advice to Youth: ‘Never Lose a Holy Curiosity,’’ Life Magazine 38, no. 18, (May 2, 1955): p. 64';
 
 const formsSpacing = '20px';
+const apiRegisterUrl = 'https://jelmerqa-backend.herokuapp.com/register-question';
 
 const InputField = withStyles({
     root: {
@@ -111,6 +112,18 @@ class JelmerQA extends React.Component {
         event.preventDefault(); // Prevent page refresh
 
         console.log(this.state);
+
+        fetch(apiRegisterUrl, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                question: this.state.question,
+                email: this.state.email,
+            }),
+        });
     }
 
     updateSendEnable() {
@@ -144,7 +157,8 @@ class JelmerQA extends React.Component {
                     I will not use your email for any other purpose.
                 </p>
                 <p>
-                    If you&apos;re interested the backend code repo can be found <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>here<OpenInNewIcon fontSize='small' /></a>.
+                    If you&apos;re interested the backend code repo can be found&nbsp;
+                    <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>here<OpenInNewIcon fontSize='small' /></a>.
                 </p>
                 <p style={{ color: 'crimson' }}><b>This form is still under construction and will not work just yet, unfortunately.</b></p>
 
