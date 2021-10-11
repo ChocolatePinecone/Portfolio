@@ -29,7 +29,7 @@ const Cplusplus = () => (
             I&apos;ve programmed all kinds of functionality, such as saving and loading files from disk,
             templates for callback structures, a physics and collider system, an audio and animation system and of course the game mechanics themselves.
             <br />
-            The game is called <ContentLink href='/experience/projects/rocket-shipment'>Rocket Shipment</ContentLink> and has a
+            The game is called <ContentLink href='/experience/projects/rocket-shipment'>Rocket Shipment</ContentLink> and has a&nbsp;
             <a target='_blank' rel='noopener noreferrer' href='https://store.steampowered.com/app/1237310/Rocket_Shipment/'>Steam page<OpenInNewIcon fontSize='small' /></a>!
         </p>
     </div>

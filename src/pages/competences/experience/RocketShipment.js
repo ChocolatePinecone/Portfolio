@@ -2,7 +2,6 @@ import React from 'react';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Quote from '../../../components/Quote';
 import { ContentLink } from '../../../components/ContentNavigation';
-import gif from '../../../assets/images/rocketshipment.gif';
 
 const quoteText = 'It isn\'t about "games", for me, personally, and it never really was. It was about creating something- anything- far bigger than yourself.';
 const quoteAuthor = 'Shigeru Miyamoto, Nintendo\'s most respected video game developer - GDC 2011';
@@ -32,9 +31,18 @@ const RocketShipment = () => (
             I&apos;m creating this game from scratch using <ContentLink href='/skills/hard-skills/programming-languages/c++'>C++</ContentLink> and the SFML Library.
         </p>
         <p>
-            Here&apos;s a small gif of Rocket Shipment to give you an idea of its aesthetics:
+            Here&apos;s a trailer of Rocket Shipment to give you an idea:
         </p>
-        <img src={gif} alt='A Rocket Shipment animated GIF' />
+        <iframe
+            width='560'
+            height='315'
+            src='https://www.youtube.com/embed/3ujySubWntQ'
+            title='YouTube video player'
+            frameBorder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowFullScreen
+            style={{ margin: '0 auto', display: 'block' }}
+        />
     </div>
 );
 
