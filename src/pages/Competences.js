@@ -24,6 +24,7 @@ import Creativity from './competences/skills/soft-skills/Creativity';
 import Skills from './competences/skills/Skills';
 import Experience from './competences/experience/Experience';
 import ING from './competences/experience/ING';
+import Police from './competences/experience/Police';
 import ThisWebsite from './competences/experience/ThisWebsite';
 import JelmerQA from './competences/experience/JelmerQA';
 import RocketShipment from './competences/experience/RocketShipment';
@@ -79,6 +80,7 @@ const routes = [
                 label: 'Companies',
                 subRoutes: [
                     { label: 'ING' },
+                    { label: 'Police' },
                 ],
             },
             {
@@ -157,6 +159,9 @@ const Competences = () => {
                         </Route>
                         <Route path='/experience/companies/ing'>
                             <ING />
+                        </Route>
+                        <Route path='/experience/companies/police'>
+                            <Police />
                         </Route>
                         <Route path='/experience/projects/this-website'>
                             <ThisWebsite />

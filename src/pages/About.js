@@ -6,6 +6,7 @@ import picture from '../assets/images/me.webp';
 import { PageNavigation, redirectToPath } from '../components/PageNavigation';
 
 const urlING = '/experience/companies/ing';
+const urlPolice = '/experience/companies/police';
 const urlJava = '/skills/hard-skills/programming-languages/java';
 const urlJavascript = '/skills/hard-skills/programming-languages/javascript';
 const urlCplusplus = '/skills/hard-skills/programming-languages/c++';
@@ -35,7 +36,7 @@ const About = () => {
                 at <a href={urlING} onClick={() => { redirect(history, urlING); }}>ING</a>.
                 Even though I&apos;ve enjoyed my time there a lot, I wanted to develop myself towards becoming a Fullstack Engineer.
                 Unfortunately ING did not have any Fullstack or Backend opportunities for me, so I decided to search further outside of ING.
-                Currently I&apos;m working fullstack on a project for the Police Netherlands.
+                Currently I&apos;m working fullstack on a project for <a href={urlPolice} onClick={() => { redirect(history, urlPolice); }}>the Police Netherlands</a>.
             </p>
 
             <h2>Passions</h2>
