@@ -6,10 +6,20 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import { ExpandMore, ExpandLess } from '@material-ui/icons';
+import { withStyles } from '@material-ui/styles';
 import { redirectToPath, redirectionType } from './PageNavigation';
 import toggleMobileMenu from '../utils/toggleMobileMenu';
 
 let rendering;
+
+const NavigationList = withStyles({
+    '@media (max-width: 700px)': {
+        root: {
+            marginTop: 'var(--menu-bar-total-height)',
+            width: '100%',
+        },
+    },
+})(List);
 
 export class ContentNavigation extends React.Component {
     componentDidMount() {
@@ -25,9 +35,9 @@ export class ContentNavigation extends React.Component {
         rendering = true;
         return (
             <div className='navigation'>
-                <List component='nav'>
+                <NavigationList component='nav'>
                     {this.props.routes.map((route) => createRouteListItem(route))}
-                </List>
+                </NavigationList>
             </div>
         );
     }

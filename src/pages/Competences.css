@@ -30,10 +30,20 @@
     margin-right: auto;
 }
 
+.navigation {
+    position: fixed;
+}
+
+.navigation-menu-space {
+    width: 30%;
+    max-width: var(--navigation-max-width);
+}
+
 .content {
     flex: 1 0 0;
     margin-left: 15%;
     margin-right: 15%;
+    margin-bottom: 10%;
 }
 
 .content h1 {
@@ -117,6 +127,10 @@
     .logo-container {
         display: inline-block;
         width: 100%;
+    }
+
+    .navigation-menu-space {
+        display: none;
     }
 
     .content {

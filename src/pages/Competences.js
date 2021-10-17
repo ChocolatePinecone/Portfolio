@@ -116,6 +116,7 @@ const Competences = () => {
             </div>
             <div className='body'>
                 <ContentNavigation routes={routes} />
+                <div className='navigation-menu-space' />
                 <div className='content'>
                     <Switch>
                         <Route path='/skills/hard-skills/programming-languages/javascript'>
