@@ -111,6 +111,7 @@ class JelmerQA extends React.Component {
     onSubmitForm(event) {
         event.preventDefault(); // Prevent page refresh
 
+        // eslint-disable-next-line no-console
         console.log(this.state);
 
         fetch(apiRegisterUrl, {
