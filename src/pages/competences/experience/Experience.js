@@ -11,10 +11,9 @@ const Experience = () => (
         <Quote text={quoteText} author={quoteAuthor} />
 
         <p>
-            My experience mostly comes from working within companies and from smaller projects. You can find the most interesting ones in the navigation menu.
-        </p>
-        <p>
-            My biggest company experience has been to work for <ContentLink href='/experience/companies/ing'>ING</ContentLink> for 2 years.
+            I have had experience working for big organisations like <ContentLink href='/experience/companies/ing'>ING</ContentLink> and the&nbsp;
+            <ContentLink href='/experience/companies/police'>Police Netherlands</ContentLink>.
+            Alongside these bigger projects I also worked on personal projects of which you can find the most interesting ones described on this website.
         </p>
         <p>
             Some interesting personal projects of mine are:
@@ -24,10 +23,13 @@ const Experience = () => (
                 <ContentLink href='/experience/projects/this-website'>This website</ContentLink>
             </li>
             <li>
+                <ContentLink href='/experience/projects/jelmerqa'>A fullstack question/answer application</ContentLink>
+            </li>
+            <li>
                 <ContentLink href='/experience/projects/rocket-shipment'>My pc game made from scratch</ContentLink>
             </li>
             <li>
-                <ContentLink href='/experience/projects/my-phaser-workshop'>My workshop for making Pong with Phaser</ContentLink>
+                <ContentLink href='/experience/projects/my-phaser-workshop'>My workshop for making Pong with the JS framework &quot;Phaser&quot;</ContentLink>
             </li>
         </ul>
     </div>
