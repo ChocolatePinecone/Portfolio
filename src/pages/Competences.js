@@ -6,7 +6,7 @@ import {
     useHistory,
 } from 'react-router-dom';
 import { ContentNavigation } from '../components/ContentNavigation';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import toggleMobileMenu from '../utils/toggleMobileMenu';
 import { redirectToPath } from '../components/PageNavigation';
 import Javascript from './competences/skills/hard-skills/Javascript';

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import { PageNavigation } from '../components/PageNavigation';
 
 const Home = () => (
