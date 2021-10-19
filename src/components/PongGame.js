@@ -218,14 +218,14 @@ function checkBallWallCollision() {
         if (ball.body.left <= 0) {
             scoreRight += 1;
             scoreTextRight.setText(scoreRight);
+            resetBall();
         }
         // If ball hits right wall
-        else {
+        else if (ball.body.right >= config.width) {
             scoreLeft += 1;
             scoreTextLeft.setText(scoreLeft);
+            resetBall();
         }
-
-        resetBall();
     }
 }
 
