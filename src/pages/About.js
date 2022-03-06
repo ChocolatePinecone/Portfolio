@@ -95,12 +95,12 @@ const About = () => {
             {
                 getContentByLanguage(
                     <p>
-                        Ik hou ervan af en toe een projectje te doen met electronica of een informatief boek te lezen over bijvoorbeeld psychologie.
+                        Ik hou ervan af en toe een projectje te doen met electronica of een informatief boek te lezen over hard of soft skills.
                         <br />
-                        Hiernaast speel ik ook regelmatig een strategische bordspel of een videogame.
+                        Hiernaast speel ik ook regelmatig een strategisch bordspel of een videogame.
                     </p>,
                     <p>
-                        I love doing projects with electronics or reading an informative book about, for example, psychology.
+                        I love doing projects with electronics or reading an informative book about hard or soft skills.
                         <br />
                         Next to this I regularly play strategic board games or videogames.
                     </p>
