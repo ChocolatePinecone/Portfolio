@@ -15,13 +15,13 @@ const App = () => (
             <div className='page'>
                 <Router>
                     <Switch>
-                        <Route path='/about'>
+                        <Route path='/over-mij'>
                             <About />
                         </Route>
-                        <Route path='/skills'>
+                        <Route path='/vaardigheden'>
                             <Competences />
                         </Route>
-                        <Route path='/experience'>
+                        <Route path='/ervaring'>
                             <Competences />
                         </Route>
                         <Route path='/'>

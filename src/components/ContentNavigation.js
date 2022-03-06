@@ -8,7 +8,102 @@ import Collapse from '@material-ui/core/Collapse';
 import { ExpandMore, ExpandLess } from '@material-ui/icons';
 import { withStyles } from '@material-ui/styles';
 import { redirectToPath, redirectionType } from './PageNavigation';
-import toggleMobileMenu from '../utils/toggleMobileMenu';
+import mobileMenu from '../utils/MobileMenu';
+import { getContentByLanguage } from '../utils/LanguageSetting';
+
+export const routes = [
+    {
+        labelNL: 'Vaardigheden',
+        labelEN: 'Skills',
+        subRoutes: [
+            {
+                label: 'Hard skills',
+                subRoutes: [
+                    {
+                        labelNL: 'Programmeertalen',
+                        labelEN: 'Programming Languages',
+                        subRoutes: [
+                            { label: 'Javascript' },
+                            { label: 'Java' },
+                            { label: 'C++' },
+                        ],
+                    },
+                    {
+                        label: 'Frameworks',
+                        subRoutes: [
+                            { label: 'Polymer' },
+                            { label: 'React' },
+                            { label: 'Spring Boot' },
+                            { label: 'Phaser' },
+                        ],
+                    },
+                    {
+                        label: 'Tools',
+                        subRoutes: [
+                            { label: 'ESLint' },
+                        ],
+                    },
+                ],
+            },
+            {
+                label: 'Soft skills',
+                subRoutes: [
+                    { labelNL: 'Communiceren', labelEN: 'Communication' },
+                    { labelNL: 'Presenteren', labelEN: 'Presenting' },
+                    { labelNL: 'Leren', labelEN: 'Learning' },
+                    { labelNL: 'Creativiteit', labelEN: 'Creativity' },
+                ],
+            },
+        ],
+    },
+    {
+        labelNL: 'Ervaring',
+        labelEN: 'Experience',
+        subRoutes: [
+            {
+                labelNL: 'Bedrijven',
+                labelEN: 'Companies',
+                subRoutes: [
+                    { label: 'ING' },
+                    { labelNL: 'Politie', labelEN: 'Police' },
+                ],
+            },
+            {
+                labelNL: 'Projecten',
+                labelEN: 'Projects',
+                subRoutes: [
+                    { labelNL: 'Deze website', labelEN: 'This website' },
+                    { label: 'JelmerQA' },
+                    { label: 'Rocket-Shipment' },
+                    { labelNL: 'Mijn Phaser workshop', labelEN: 'My Phaser workshop' },
+                ],
+            },
+        ],
+    },
+];
+
+export const urls = {
+    javascript: '/vaardigheden/hard-skills/programmeertalen/javascript',
+    java: '/vaardigheden/hard-skills/programmeertalen/java',
+    'c++': '/vaardigheden/hard-skills/programmeertalen/c++',
+    polymer: '/vaardigheden/hard-skills/frameworks/polymer',
+    react: '/vaardigheden/hard-skills/frameworks/react',
+    'spring-boot': '/vaardigheden/hard-skills/frameworks/spring-boot',
+    phaser: '/vaardigheden/hard-skills/frameworks/phaser',
+    eslint: '/vaardigheden/hard-skills/tools/eslint',
+    communiceren: '/vaardigheden/soft-skills/communiceren',
+    presenteren: '/vaardigheden/soft-skills/presenteren',
+    leren: '/vaardigheden/soft-skills/leren',
+    creativiteit: '/vaardigheden/soft-skills/creativiteit',
+    vaardigheden: '/vaardigheden',
+    ing: '/ervaring/bedrijven/ing',
+    politie: '/ervaring/bedrijven/politie',
+    'deze-website': '/ervaring/projecten/deze-website',
+    jelmerqa: '/ervaring/projecten/jelmerqa',
+    'rocket-shipment': '/ervaring/projecten/rocket-shipment',
+    'phaser-workshop': '/ervaring/projecten/mijn-phaser-workshop',
+    ervaring: '/ervaring',
+};
 
 let rendering;
 
@@ -45,12 +140,15 @@ export class ContentNavigation extends React.Component {
 
 const createRouteListItem = (route, parentRouteId = '', listDepth = 0) => {
     if (route.id === undefined) {
-        route.id = `/${route.label.toLowerCase()}`; // Convert to lower-case
+        const urlLabel = route.label || route.labelNL;
+        route.id = `/${urlLabel.toLowerCase()}`; // Convert to lower-case
         route.id = route.id.replace(/ /g, '-'); // Replace all spaces with hyphens
         route.id = parentRouteId + route.id; // Prepend route with parent route for correct url representation
     }
     return <RouteListItem key={route.id} route={route} listDepth={listDepth} />;
 };
+
+const getRouteItemLabel = (route) => route.label || getContentByLanguage(route.labelNL, route.labelEN);
 
 const RouteListItem = (props) => {
     const history = useHistory();
@@ -65,7 +163,7 @@ const RouteListItem = (props) => {
                     navigateToContent(history, props.route.id);
                 }}
             >
-                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
+                <ListItemText primary={getRouteItemLabel(props.route)} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
             </ListItem>
         );
     }
@@ -89,7 +187,7 @@ const CollapsibleListItem = (props) => {
     return (
         <div>
             <ListItem button className='list-item' onClick={toggleOpen}>
-                <ListItemText primary={props.route.label} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
+                <ListItemText primary={getRouteItemLabel(props.route)} style={{ paddingLeft: `${props.listDepth * 16}px` }} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open}>
@@ -123,7 +221,7 @@ const updateNavigationSelection = (newPath) => {
 export const navigateToContent = (history, path) => {
     let delay = 0;
     if (document.querySelector('.navigation').classList.contains(('menu-opened'))) {
-        toggleMobileMenu();
+        mobileMenu();
         delay = 300;
     }
 
@@ -135,13 +233,14 @@ export const navigateToContent = (history, path) => {
 
 export const ContentLink = (props) => {
     const history = useHistory();
+    const href = urls[props.to];
 
     const navigate = (e) => {
         e.preventDefault(); // Prevent anchor from redirecting
-        navigateToContent(history, props.href); // Redirect in the desired way, only refreshing the content
+        navigateToContent(history, href); // Redirect in the desired way, only refreshing the content
     };
 
     return (
-        <a href={props.href} onClick={navigate}>{ props.children }</a>
+        <a href={href} onClick={navigate}>{ props.children }</a>
     );
 };

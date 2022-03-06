@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import React from 'react';
 import './PongGame.css';
+import { getContentByLanguage } from '../utils/LanguageSetting';
 
 // Configuration for Phaser
 const config = {
@@ -48,23 +49,23 @@ class PongGame extends React.Component {
         return (
             <div id='pong-game'>
                 <div id='controls'>
-                    <h2>Pong Game Controls</h2>
+                    <h2>{getContentByLanguage('Pong Game Besturing', 'Pong Game Controls')}</h2>
                     <table>
                         <tbody>
                             <tr>
                                 <td />
-                                <td><strong>Player Left:</strong></td>
-                                <td><strong>Player Right:</strong></td>
+                                <td><strong>{getContentByLanguage('Speler links:', 'Player Left:')}</strong></td>
+                                <td><strong>{getContentByLanguage('Speler rechts:', 'Player Right:')}</strong></td>
                             </tr>
                             <tr>
-                                <td>Move paddle up:</td>
-                                <td>{'\'W\' button'}</td>
-                                <td>{'\'Arrow Up\' button'}</td>
+                                <td>{getContentByLanguage('Batje omhoog:', 'Move paddle up:')}</td>
+                                <td>{getContentByLanguage('\'W\' toets', '\'W\' button')}</td>
+                                <td>{getContentByLanguage('\'Pijltje omhoog\'', '\'Arrow Up\' button')}</td>
                             </tr>
                             <tr>
-                                <td>Move paddle down:</td>
-                                <td>{'\'S\' button'}</td>
-                                <td>{'\'Arrow Down\' button'}</td>
+                                <td>{getContentByLanguage('Batje omlaag:', 'Move paddle down:')}</td>
+                                <td>{getContentByLanguage('\'S\' toets', '\'S\' button')}</td>
+                                <td>{getContentByLanguage('\'Pijltje omlaag\'', '\'Arrow Down\' button')}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -4,6 +4,7 @@ import SendIcon from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/styles';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Quote from '../../../components/Quote';
+import { getContentByLanguage } from '../../../utils/LanguageSetting';
 
 const quoteText = 'The important thing is not to stop questioning. Curiosity has its own reason for existence.';
 const quoteAuthor = 'Albert Einstein - Death of a Genius–Old Man’s Advice to Youth: ‘Never Lose a Holy Curiosity,’’ Life Magazine 38, no. 18, (May 2, 1955): p. 64';
@@ -142,31 +143,69 @@ class JelmerQA extends React.Component {
                 <h1>JelmerQA</h1>
                 <Quote text={quoteText} author={quoteAuthor} />
                 <p>
-                    As I&apos;m very interested in understanding the complete chain from front to back,
-                    I decided to create a registration project that utilizes various frameworks/tools on my list to learn.
-                    My initial goal was to get some more Maven / Springboot / AWS experience, but the project is meant to evolve just like my learning list does.
+                    {getContentByLanguage(
+                        'Aangezien ik erg geïnteresseerd ben de complete software chain van voren naar achteren te begrijpen, '
+                        + 'besloot ik een registratie apllicatie te ontwikkelen die meerdere frameworks/tools op mijn "te leren" lijst gebruikt. '
+                        + 'Mijn initiele doel was om meer Maven /Springboot ervaring op te doen, maar het project is bedoeld om door te groeien net zoals mijn "te leren" lijst doet.',
+
+                        'As I\'m very interested in understanding the complete software chain from front to back, '
+                        + 'I decided to create a registration application that utilizes various frameworks/tools on my list to learn. '
+                        + 'My initial goal was to get some more Maven / Springboot experience, but the project is meant to evolve just like my learning list does.'
+                    )}
                 </p>
                 <p>
-                    The idea is simple: Anyone can use the below inputs to send me a question.
-                    The question and your (automatically encrypted) mail address is saved in a database and you will get a confirmation email stating you sent a question my way.
-                    I will also get an email stating someone sent me a question.
-                    After I answer it, you will get a notification email after which your mail address data will be removed from the database.
-                    The latter is of course implemented with the privacy laws in mind.
+                    {getContentByLanguage(
+                        'Het idee is simpel:',
+
+                        'The idea is simple:'
+                    )}
+                    <br />
+                    {getContentByLanguage(
+                        'Iedereen kan de onderstaande velden gebruiken om me een vraag te sturen. '
+                        + 'De vraag en je (automatisch ge-encrypte) mail adres wordt opgeslagen in een database, en je zult een bevestigingsmail krijgen toegestuurd waarin staat dat je een vraag '
+                        + 'naar mij hebt gestuurd. Ik zal ook een mail krijgen waarin staat dat iemand mij een vraag heeft gestuurd. '
+                        + 'Nadat ik de vraag heb beantwoord krijgt de zender een notificatiemail waarna zijn mail adres wordt verwijderd uit de database. '
+                        + 'Dit laatste is natuurlijk geïmplementeerd met de privacy wetten in gedachten.',
+
+                        'Anyone can use the below inputs to send me a question. '
+                        + 'The question and your (automatically encrypted) mail address is saved in a database and you will get a confirmation email stating you sent a question my way. '
+                        + 'I will also get an email stating someone sent me a question. '
+                        + 'After I answer it, you will get a notification email after which your mail address data will be removed from the database. '
+                        + 'The latter is of course implemented with the privacy laws in mind.'
+                    )}
                 </p>
                 <p>
-                    That&apos;s it in a nutshell. Of course this means that by entering your email below, you are agreeing to storing your mail address in my database up until I answer your question.
-                    I will not use your email for any other purpose.
+                    {getContentByLanguage(
+                        'Dat is het eigenlijk al. Natuurlijk betekent dit dat je door het invullen van je email adres akkoord gaat met het opslaan van dit adres in mijn database totdat '
+                        + 'ik je vraag beantwoord heb. Ik zal je mail niet gebruiken voor enig ander doel tenzij je dat uitdrukkelijk aangeeft in je vraag.',
+                        'That\'s it in a nutshell. Of course this means that by entering your email address below, you are agreeing to storing your mail address in my database '
+                        + 'up until I answer your question. I will not use your email for any other purpose unless you explicitly state so in your question.'
+                    )}
                 </p>
-                <p>
-                    If you&apos;re interested the backend code repo can be found&nbsp;
-                    <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>here<OpenInNewIcon fontSize='small' /></a>.
+                {
+                    getContentByLanguage(
+                        <p>
+                            Als je interesse hebt in de Back-end code, dan kun je deze&nbsp;
+                            <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>hier<OpenInNewIcon fontSize='small' /></a> zien.
+                        </p>,
+                        <p>
+                            If you&apos;re interested the Back-end code repo can be found&nbsp;
+                            <a target='_blank' rel='noopener noreferrer' href='https://github.com/ChocolatePinecone/JelmerQA-Backend'>here<OpenInNewIcon fontSize='small' /></a>.
+                        </p>
+                    )
+                }
+                <p style={{ color: 'crimson' }}>
+                    <b>{getContentByLanguage(
+                        'Deze applicatie is nog niet ver genoeg af en zal helaas nog niet werken.',
+                        'This application is still under construction and will not work just yet, unfortunately.'
+                    )}
+                    </b>
                 </p>
-                <p style={{ color: 'crimson' }}><b>This form is still under construction and will not work just yet, unfortunately.</b></p>
 
                 <form className='form' onSubmit={this.onSubmitForm}>
                     <InputField
                         name='question'
-                        label='Question'
+                        label={getContentByLanguage('Vraag', 'Question')}
                         variant='outlined'
                         fullWidth
                         type='text'
@@ -194,7 +233,7 @@ class JelmerQA extends React.Component {
                         type='submit'
                         disabled={this.state.sendDisabled}
                     >
-                        Send
+                        {getContentByLanguage('Verstuur', 'Send')}
                     </SendButton>
                 </form>
             </div>

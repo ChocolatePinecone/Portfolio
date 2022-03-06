@@ -6,6 +6,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CodeOutlinedIcon from '@material-ui/icons/CodeOutlined';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import { useHistory } from 'react-router-dom';
+import { getContentByLanguage, isLanguageEN } from '../utils/LanguageSetting';
 
 export const PageNavigation = () => {
     const history = useHistory();
@@ -18,9 +19,24 @@ export const PageNavigation = () => {
             showLabels
             className='nav'
         >
-            <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/about' label='About' icon={<InfoOutlinedIcon fontSize='large' />} />
-            <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/skills' label='Skills' icon={<CodeOutlinedIcon fontSize='large' />} />
-            <BottomNavigationAction classes={{ root: 'icon', label: 'label', selected: 'label' }} value='/experience' label='Experience' icon={<PeopleAltOutlinedIcon fontSize='large' />} />
+            <BottomNavigationAction
+                classes={{ root: 'icon', label: 'label', selected: 'label' }}
+                value='/over-mij'
+                label={getContentByLanguage('Over Mij', 'About me')}
+                icon={<InfoOutlinedIcon fontSize='large' />}
+            />
+            <BottomNavigationAction
+                classes={{ root: 'icon', label: 'label', selected: 'label' }}
+                value='/vaardigheden'
+                label={getContentByLanguage('Vaardigheden', 'Skills')}
+                icon={<CodeOutlinedIcon fontSize='large' />}
+            />
+            <BottomNavigationAction
+                classes={{ root: 'icon', label: 'label', selected: 'label' }}
+                value='/ervaring'
+                label={getContentByLanguage('Ervaring', 'Experience')}
+                icon={<PeopleAltOutlinedIcon fontSize='large' />}
+            />
         </BottomNavigation>
 
     );
@@ -30,6 +46,7 @@ export const redirectionType = Object.freeze({ PAGE: 0, CONTENT: 1 });
 export const redirectToPath = (history, path, type = redirectionType.PAGE) => {
     // Determine element selector to use for fading
     let selector = '';
+    const pathUrl = `${path}${isLanguageEN() ? '?lang=en' : ''}`;
     if (type === redirectionType.PAGE) selector = '.page';
     else if (type === redirectionType.CONTENT) selector = '.content';
 
@@ -48,7 +65,7 @@ export const redirectToPath = (history, path, type = redirectionType.PAGE) => {
             document.querySelector(selector)
                 .classList
                 .remove('fade-out');
-            history.push(path);
+            history.push(pathUrl);
         }, timeout);
     }
 };

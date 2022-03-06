@@ -1,4 +1,4 @@
-const toggleMobileMenu = () => {
+const mobileMenu = () => {
     const burger = document.querySelector('.mobile-burger-container');
     const nav = document.querySelector('.navigation');
 
@@ -6,4 +6,4 @@ const toggleMobileMenu = () => {
     nav.classList.toggle('menu-opened');
 };
 
-export default toggleMobileMenu;
+export default mobileMenu;

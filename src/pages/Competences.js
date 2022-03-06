@@ -5,10 +5,11 @@ import {
     Route,
     useHistory,
 } from 'react-router-dom';
-import { ContentNavigation } from '../components/ContentNavigation';
+import { ContentNavigation, routes, urls } from '../components/ContentNavigation';
 import logo from '../assets/images/logo.webp';
-import toggleMobileMenu from '../utils/toggleMobileMenu';
+import mobileMenu from '../utils/MobileMenu';
 import { redirectToPath } from '../components/PageNavigation';
+import LanguageToggler from '../components/LanguageToggler';
 import Javascript from './competences/skills/hard-skills/Javascript';
 import Java from './competences/skills/hard-skills/Java';
 import Cplusplus from './competences/skills/hard-skills/C++';
@@ -30,84 +31,19 @@ import JelmerQA from './competences/experience/JelmerQA';
 import RocketShipment from './competences/experience/RocketShipment';
 import PhaserWorkshop from './competences/experience/PhaserWorkshop';
 
-const routes = [
-    {
-        label: 'Skills',
-        subRoutes: [
-            {
-                label: 'Hard skills',
-                subRoutes: [
-                    {
-                        label: 'Programming Languages',
-                        subRoutes: [
-                            { label: 'Javascript' },
-                            { label: 'Java' },
-                            { label: 'C++' },
-                        ],
-                    },
-                    {
-                        label: 'Frameworks',
-                        subRoutes: [
-                            { label: 'Polymer' },
-                            { label: 'React' },
-                            { label: 'Spring Boot' },
-                            { label: 'Phaser' },
-                        ],
-                    },
-                    {
-                        label: 'Tools',
-                        subRoutes: [
-                            { label: 'ESLint' },
-                        ],
-                    },
-                ],
-            },
-            {
-                label: 'Soft skills',
-                subRoutes: [
-                    { label: 'Communication' },
-                    { label: 'Presenting' },
-                    { label: 'Learning' },
-                    { label: 'Creativity' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Experience',
-        subRoutes: [
-            {
-                label: 'Companies',
-                subRoutes: [
-                    { label: 'ING' },
-                    { label: 'Police' },
-                ],
-            },
-            {
-                label: 'Projects',
-                subRoutes: [
-                    { label: 'This website' },
-                    { label: 'JelmerQA' },
-                    { label: 'Rocket-Shipment' },
-                    { label: 'My Phaser workshop' },
-                ],
-            },
-        ],
-    },
-];
-
 const Competences = () => {
     const history = useHistory();
 
     return (
         <div id='competences'>
+            <LanguageToggler history={history} competencesView />
             <div className='header-menu'>
                 <div className='logo-container'>
                     <button type='button' className='logo' onClick={() => redirectToPath(history, '/')}>
                         <img src={logo} alt='Jelmer Pijnappel' />
                     </button>
                 </div>
-                <button type='button' className='mobile-burger-container' onClick={toggleMobileMenu}>
+                <button type='button' className='mobile-burger-container' onClick={mobileMenu}>
                     <div id='mobile-burger'>
                         <div className='bar topBar' />
                         <div className='bar btmBar' />
@@ -119,64 +55,64 @@ const Competences = () => {
                 <div className='navigation-menu-space' />
                 <div className='content'>
                     <Switch>
-                        <Route path='/skills/hard-skills/programming-languages/javascript'>
+                        <Route path={urls.javascript}>
                             <Javascript />
                         </Route>
-                        <Route path='/skills/hard-skills/programming-languages/java'>
+                        <Route path={urls.java}>
                             <Java />
                         </Route>
-                        <Route path='/skills/hard-skills/programming-languages/c++'>
+                        <Route path={urls['c++']}>
                             <Cplusplus />
                         </Route>
-                        <Route path='/skills/hard-skills/frameworks/polymer'>
+                        <Route path={urls.polymer}>
                             <Polymer />
                         </Route>
-                        <Route path='/skills/hard-skills/frameworks/react'>
+                        <Route path={urls.react}>
                             <REACT />
                         </Route>
-                        <Route path='/skills/hard-skills/frameworks/spring-boot'>
+                        <Route path={urls['spring-boot']}>
                             <SpringBoot />
                         </Route>
-                        <Route path='/skills/hard-skills/tools/eslint'>
-                            <ESLint />
-                        </Route>
-                        <Route path='/skills/hard-skills/frameworks/phaser'>
+                        <Route path={urls.phaser}>
                             <Phaser />
                         </Route>
-                        <Route path='/skills/soft-skills/communication'>
+                        <Route path={urls.eslint}>
+                            <ESLint />
+                        </Route>
+                        <Route path={urls.communiceren}>
                             <Communication />
                         </Route>
-                        <Route path='/skills/soft-skills/presenting'>
+                        <Route path={urls.presenteren}>
                             <Presenting />
                         </Route>
-                        <Route path='/skills/soft-skills/learning'>
+                        <Route path={urls.leren}>
                             <Learning />
                         </Route>
-                        <Route path='/skills/soft-skills/creativity'>
+                        <Route path={urls.creativiteit}>
                             <Creativity />
                         </Route>
-                        <Route path='/skills'>
+                        <Route path={urls.vaardigheden}>
                             <Skills />
                         </Route>
-                        <Route path='/experience/companies/ing'>
+                        <Route path={urls.ing}>
                             <ING />
                         </Route>
-                        <Route path='/experience/companies/police'>
+                        <Route path={urls.politie}>
                             <Police />
                         </Route>
-                        <Route path='/experience/projects/this-website'>
+                        <Route path={urls['deze-website']}>
                             <ThisWebsite />
                         </Route>
-                        <Route path='/experience/projects/jelmerqa'>
+                        <Route path={urls.jelmerqa}>
                             <JelmerQA />
                         </Route>
-                        <Route path='/experience/projects/rocket-shipment'>
+                        <Route path={urls['rocket-shipment']}>
                             <RocketShipment />
                         </Route>
-                        <Route path='/experience/projects/my-phaser-workshop'>
+                        <Route path={urls['phaser-workshop']}>
                             <PhaserWorkshop />
                         </Route>
-                        <Route path='/experience'>
+                        <Route path={urls.ervaring}>
                             <Experience />
                         </Route>
                     </Switch>
