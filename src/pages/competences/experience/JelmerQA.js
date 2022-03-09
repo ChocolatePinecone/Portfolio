@@ -125,7 +125,11 @@ class JelmerQA extends React.Component {
                 question: this.state.question,
                 email: this.state.email,
             }),
-        });
+        })
+            // eslint-disable-next-line no-console
+            .then((r) => console.log(r))
+            // eslint-disable-next-line no-console
+            .catch((err) => console.log(err));
     }
 
     updateSendEnable() {
