@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, TextField } from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
-import { withStyles } from '@material-ui/styles';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import { Alert, Button, TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Quote from '../../../components/Quote';
 import { getContentByLanguage } from '../../../utils/LanguageSetting';
 
@@ -12,62 +11,48 @@ const quoteAuthor = 'Albert Einstein - Death of a Genius–Old Man’s Advice to
 const formsSpacing = '20px';
 const apiRegisterUrl = 'https://jelmerqa-backend.herokuapp.com/register-question';
 
-const InputField = withStyles({
-    root: {
-        '& .MuiFormControl-fullWidth': {
-            maxWidth: '300px',
-        },
-        '& label': {
-            marginTop: formsSpacing,
-            color: 'Grey',
-        },
-        '& label.Mui-focused': {
-            color: 'DeepSkyBlue',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& input': {
-                marginTop: formsSpacing,
-                color: 'White',
-            },
-            '& fieldset': {
-                marginTop: formsSpacing,
-                borderColor: 'White',
-            },
-            '&:hover fieldset': {
-                borderColor: 'DeepSkyBlue',
-            },
-            '& .Mui-focused fieldset': {
-                borderColor: 'DeepSkyBlue',
-            },
-        },
-    },
-})(TextField);
-
-const EmailField = withStyles({
-    root: {
+const inputStyle = {
+    '& .MuiFormControl-fullWidth': {
         maxWidth: '300px',
     },
-})(InputField);
-
-const SendButton = withStyles({
-    root: {
-        display: 'flex',
+    '& label': {
         marginTop: formsSpacing,
-        marginBottom: formsSpacing,
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        color: 'Grey',
     },
-})(Button);
+    '& label.Mui-focused': {
+        color: 'DeepSkyBlue',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& input': {
+            marginTop: formsSpacing,
+            color: 'White',
+        },
+        '& fieldset': {
+            marginTop: formsSpacing,
+            borderColor: 'White',
+        },
+        '&:hover fieldset': {
+            borderColor: 'DeepSkyBlue',
+        },
+        '& .Mui-focused fieldset': {
+            borderColor: 'DeepSkyBlue',
+        },
+    },
+};
+
+const emailInputStyle = { maxWidth: '300px', marginBottom: formsSpacing, ...inputStyle };
 
 class JelmerQA extends React.Component {
     constructor() {
         super();
         this.state = {
-            question: '',
             email: '',
             emailError: false,
             emailErrorText: '',
+            question: '',
             sendDisabled: true,
+            sent: false,
+            sendError: false,
         };
         this.onInputChange = this.onInputChange.bind(this);
         this.onEmailInputChange = this.onEmailInputChange.bind(this);
@@ -81,6 +66,8 @@ class JelmerQA extends React.Component {
 
         this.setState({
             [event.target.name]: newValue,
+            sent: false,
+            sendError: false,
         }, () => {
             if (lastValue === '' || newValue === '') {
                 this.updateSendEnable();
@@ -126,10 +113,20 @@ class JelmerQA extends React.Component {
                 email: this.state.email,
             }),
         })
-            // eslint-disable-next-line no-console
-            .then((r) => console.log(r))
-            // eslint-disable-next-line no-console
-            .catch((err) => console.log(err));
+            .then(() => {
+                this.setState({
+                    email: '',
+                    question: '',
+                    sent: true,
+                });
+            })
+            .catch((err) => {
+                // eslint-disable-next-line no-console
+                console.log(err);
+                this.setState({
+                    sendError: true,
+                });
+            });
     }
 
     updateSendEnable() {
@@ -198,16 +195,16 @@ class JelmerQA extends React.Component {
                         </p>
                     )
                 }
-                <p style={{ color: 'crimson' }}>
-                    <b>{getContentByLanguage(
+                <Alert severity='warning'>
+                    {getContentByLanguage(
                         'Deze applicatie is nog niet ver genoeg af en zal helaas nog niet werken.',
                         'This application is still under construction and will not work just yet, unfortunately.'
                     )}
-                    </b>
-                </p>
+                </Alert>
 
                 <form className='form' onSubmit={this.onSubmitForm}>
-                    <InputField
+                    <TextField
+                        sx={inputStyle}
                         name='question'
                         label={getContentByLanguage('Vraag', 'Question')}
                         variant='outlined'
@@ -217,7 +214,8 @@ class JelmerQA extends React.Component {
                         value={this.state.question}
                         onChange={this.onInputChange}
                     />
-                    <EmailField
+                    <TextField
+                        sx={emailInputStyle}
                         name='email'
                         label='Email'
                         variant='outlined'
@@ -229,7 +227,33 @@ class JelmerQA extends React.Component {
                         error={this.state.emailError}
                         helperText={this.state.emailErrorText}
                     />
-                    <SendButton
+                    {
+                        this.state.sent
+                        && (
+                            <p style={{ color: 'mediumseagreen' }}>
+                                <b>{getContentByLanguage('Verstuurd!', 'Sent!')}</b>
+                            </p>
+                        )
+                    }
+                    {
+                        this.state.sendError
+                        && (
+                            <Alert severity='error'>
+                                {getContentByLanguage(
+                                    'Er ging iets mis... Probeer het later nog eens!',
+                                    'Something went wrong... Please try again later!'
+                                )}
+                            </Alert>
+                        )
+                    }
+                    <Button
+                        sx={{
+                            display: 'flex',
+                            marginTop: formsSpacing,
+                            marginBottom: formsSpacing,
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                        }}
                         variant='contained'
                         color='primary'
                         size='large'
@@ -238,7 +262,7 @@ class JelmerQA extends React.Component {
                         disabled={this.state.sendDisabled}
                     >
                         {getContentByLanguage('Verstuur', 'Send')}
-                    </SendButton>
+                    </Button>
                 </form>
             </div>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Quote from '../../../components/Quote';
 import { ContentLink } from '../../../components/ContentNavigation';
 import { getContentByLanguage } from '../../../utils/LanguageSetting';

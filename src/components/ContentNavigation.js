@@ -1,12 +1,10 @@
 import React from 'react';
 import './ContentNavigation.css';
 import { useHistory } from 'react-router-dom';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import { ExpandMore, ExpandLess } from '@material-ui/icons';
-import { withStyles } from '@material-ui/styles';
+import {
+    Collapse, List, ListItem, ListItemText,
+} from '@mui/material';
+import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { redirectToPath, redirectionType } from './PageNavigation';
 import mobileMenu from '../utils/MobileMenu';
 import { getContentByLanguage } from '../utils/LanguageSetting';
@@ -107,15 +105,6 @@ export const urls = {
 
 let rendering;
 
-const NavigationList = withStyles({
-    '@media (max-width: 700px)': {
-        root: {
-            marginTop: 'var(--menu-bar-total-height)',
-            width: '100%',
-        },
-    },
-})(List);
-
 export class ContentNavigation extends React.Component {
     componentDidMount() {
         rendering = false;
@@ -130,9 +119,15 @@ export class ContentNavigation extends React.Component {
         rendering = true;
         return (
             <div className='navigation'>
-                <NavigationList component='nav'>
+                <List sx={{
+                    '@media (max-width: 700px)': {
+                        marginTop: 'var(--menu-bar-total-height)',
+                        width: '100%',
+                    },
+                }}
+                >
                     {this.props.routes.map((route) => createRouteListItem(route))}
-                </NavigationList>
+                </List>
             </div>
         );
     }

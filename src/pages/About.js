@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 import { useHistory } from 'react-router-dom';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import picture from '../assets/images/me.webp';
 import { PageNavigation, redirectToPath } from '../components/PageNavigation';
 import LanguageToggler from '../components/LanguageToggler';

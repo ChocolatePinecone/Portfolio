@@ -1,10 +1,9 @@
 import React from 'react';
 import './PageNavigation.css';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import CodeOutlinedIcon from '@material-ui/icons/CodeOutlined';
-import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import { useHistory } from 'react-router-dom';
 import { getContentByLanguage, isLanguageEN } from '../utils/LanguageSetting';
 
