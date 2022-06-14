@@ -230,9 +230,9 @@ class JelmerQA extends React.Component {
                     {
                         this.state.sent
                         && (
-                            <p style={{ color: 'mediumseagreen' }}>
-                                <b>{getContentByLanguage('Verstuurd!', 'Sent!')}</b>
-                            </p>
+                            <Alert severity='success'>
+                                {getContentByLanguage('Verstuurd!', 'Sent!')}
+                            </Alert>
                         )
                     }
                     {
